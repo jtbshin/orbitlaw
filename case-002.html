@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>[대구 민사변호사] 사해행위취소 피고 — 제척기간 도과 소 각하 | 신한솔 변호사</title>
+<meta name="description" content="선행 사건 패소 이후에도 제척기간 도과 법리로 소 각하를 이끌어낸 신한솔 변호사의 민사 성공 사례. 대구지방법원.">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700&family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --burgundy: #4B0F0F;
+    --burgundy-dark: #2D0808;
+    --cream: #FAF5EE;
+    --cream-dark: #F0E8DC;
+    --gold: #C5A55A;
+    --text-dark: #1A0A0A;
+    --text-mid: #4A2A2A;
+    --text-light: #8A6A6A;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Noto Sans KR', sans-serif; background: var(--cream); color: var(--text-dark); }
+
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(45,8,8,0.97); backdrop-filter: blur(8px);
+    padding: 0 40px; height: 64px;
+    display: flex; align-items: center; justify-content: space-between;
+    border-bottom: 1px solid rgba(197,165,90,0.3);
+  }
+  .nav-logo { font-family: 'Noto Serif KR', serif; font-size: 15px; color: var(--cream); text-decoration: none; }
+  .nav-logo span { color: var(--gold); font-size: 10px; display: block; letter-spacing: 0.1em; font-family: 'Noto Sans KR', sans-serif; font-weight: 300; }
+  .nav-back { font-size: 13px; color: rgba(250,245,238,0.6); text-decoration: none; transition: color 0.2s; }
+  .nav-back:hover { color: var(--gold); }
+
+  /* HEADER */
+  .case-header {
+    background: var(--burgundy-dark);
+    padding: 80px 40px 60px;
+  }
+  .case-header-inner { max-width: 800px; margin: 0 auto; }
+  .case-tag {
+    display: inline-block;
+    font-size: 10px; letter-spacing: 0.3em;
+    color: var(--gold); text-transform: uppercase;
+    border: 1px solid rgba(197,165,90,0.4);
+    padding: 4px 12px; margin-bottom: 24px;
+  }
+  .case-title {
+    font-family: 'Noto Serif KR', serif;
+    font-size: clamp(24px, 4vw, 40px);
+    color: var(--cream); font-weight: 700;
+    line-height: 1.4; margin-bottom: 24px;
+  }
+  .case-result-badge {
+    display: inline-flex; align-items: center; gap: 12px;
+    background: rgba(197,165,90,0.15);
+    border: 1px solid rgba(197,165,90,0.4);
+    padding: 12px 24px;
+  }
+  .case-result-label { font-size: 10px; letter-spacing: 0.2em; color: var(--gold); }
+  .case-result-value { font-size: 16px; color: var(--cream); font-weight: 700; font-family: 'Noto Serif KR', serif; }
+
+  /* CONTENT */
+  .case-content {
+    max-width: 800px; margin: 0 auto;
+    padding: 64px 40px 100px;
+  }
+
+  /* 요약 박스 */
+  .summary-box {
+    background: white;
+    border-left: 4px solid var(--burgundy);
+    padding: 32px 36px;
+    margin-bottom: 56px;
+  }
+  .summary-box h3 {
+    font-size: 11px; letter-spacing: 0.2em;
+    color: var(--burgundy); text-transform: uppercase;
+    margin-bottom: 16px; font-weight: 700;
+  }
+  .summary-box ul { list-style: none; }
+  .summary-box li {
+    font-size: 14px; color: var(--text-mid);
+    line-height: 1.8; padding: 8px 0;
+    border-bottom: 1px solid var(--cream-dark);
+    padding-left: 16px; position: relative;
+  }
+  .summary-box li::before {
+    content: '—';
+    position: absolute; left: 0;
+    color: var(--gold);
+  }
+  .summary-box li:last-child { border-bottom: none; }
+
+  /* 섹션 */
+  .content-section { margin-bottom: 52px; }
+  .content-section h2 {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 20px; color: var(--burgundy);
+    font-weight: 700; margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--cream-dark);
+  }
+  .content-section p {
+    font-size: 15px; color: var(--text-mid);
+    line-height: 2.1; font-weight: 300;
+    margin-bottom: 16px;
+  }
+  .content-section p strong { color: var(--text-dark); font-weight: 700; }
+
+  /* 판결문 발췌 박스 */
+  .doc-box {
+    background: #f8f8f8;
+    border: 1px solid #e0e0e0;
+    border-left: 3px solid var(--text-light);
+    padding: 20px 24px;
+    margin: 24px 0;
+    font-size: 13px; color: #555;
+    line-height: 1.9;
+  }
+  .doc-box-label {
+    font-size: 10px; letter-spacing: 0.2em;
+    color: var(--text-light); text-transform: uppercase;
+    margin-bottom: 12px; display: block; font-weight: 600;
+  }
+
+  /* 법조문 인용 */
+  .law-box {
+    background: white;
+    border: 1px solid var(--cream-dark);
+    border-top: 2px solid var(--gold);
+    padding: 20px 24px;
+    margin: 24px 0;
+    font-size: 13px; color: var(--text-mid);
+    line-height: 1.9;
+  }
+  .law-box-label {
+    font-size: 10px; letter-spacing: 0.2em;
+    color: var(--gold); text-transform: uppercase;
+    margin-bottom: 10px; display: block; font-weight: 700;
+  }
+
+  /* 촌평 박스 */
+  .comment-box {
+    background: var(--burgundy-dark);
+    padding: 36px 40px;
+    margin: 48px 0;
+  }
+  .comment-box h3 {
+    font-size: 11px; letter-spacing: 0.2em;
+    color: var(--gold); text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+  .comment-box p {
+    font-size: 15px; color: rgba(250,245,238,0.85);
+    line-height: 2.1; font-weight: 300;
+  }
+
+  /* 이전/다음 */
+  .nav-cases {
+    display: flex; justify-content: space-between;
+    padding: 32px 0; margin-top: 32px;
+    border-top: 1px solid var(--cream-dark);
+  }
+  .nav-case-link {
+    font-size: 13px; color: var(--text-light);
+    text-decoration: none; transition: color 0.2s;
+  }
+  .nav-case-link:hover { color: var(--burgundy); }
+
+  /* CTA */
+  .case-cta {
+    background: var(--burgundy);
+    padding: 48px 40px; text-align: center;
+  }
+  .case-cta p { font-size: 14px; color: rgba(250,245,238,0.7); margin-bottom: 24px; line-height: 1.8; font-weight: 300; }
+  .cta-btn {
+    display: inline-block; background: var(--gold);
+    color: var(--burgundy-dark); padding: 16px 48px;
+    font-size: 13px; letter-spacing: 0.1em; font-weight: 700;
+    text-decoration: none; transition: background 0.2s;
+    font-family: 'Noto Sans KR', sans-serif;
+  }
+  .cta-btn:hover { background: #D4B97A; }
+
+  @media (max-width: 768px) {
+    nav { padding: 0 20px; }
+    .case-header { padding: 60px 24px 40px; }
+    .case-content { padding: 48px 24px 60px; }
+    .comment-box { padding: 28px 24px; }
+    .case-cta { padding: 40px 24px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">
+    신한솔 변호사
+    <span>SHIN HANSOL, ATTORNEY AT LAW</span>
+  </a>
+  <a href="cases.html" class="nav-back">← 성공사례 목록</a>
+</nav>
+
+<div class="case-header">
+  <div class="case-header-inner">
+    <span class="case-tag">민사 · 사해행위취소</span>
+    <h1 class="case-title">선행 사건 패소 이후,<br>제척기간 도과로 소 각하</h1>
+    <div class="case-result-badge">
+      <span class="case-result-label">최종 결과</span>
+      <span class="case-result-value">소 각하 — 피고 완전 승소</span>
+    </div>
+  </div>
+</div>
+
+<div class="case-content">
+
+  <div class="summary-box">
+    <h3>핵심 요약</h3>
+    <ul>
+      <li>타 채권자의 선행 소송에서 이미 패소한 상태로 수임. 실체 다툼으로는 승산이 없는 구조였음.</li>
+      <li>원고 측 임원의 통화 녹음 10여 통을 AI로 변환·분석, 제척기간 기산점을 소 제기 시점으로부터 1년 이상 앞당기는 데 성공.</li>
+      <li>대구지방법원, 본안 판단 없이 소 각하. 피고 전원 완전 승소.</li>
+    </ul>
+  </div>
+
+  <div class="content-section">
+    <h2>I. 사건의 개요</h2>
+    <p>
+      의뢰인은 건설사 채무자로부터 기성금을 수령한 수익자로서, 채권자로부터 사해행위취소 소송을 당했습니다.
+      이미 다른 채권자가 동일한 피고들을 상대로 제기한 선행 소송에서 채권자 측이 승소한 상황이었습니다.
+      법원은 판결의 모순·저촉을 피하기 위해 선행 사건의 결론을 강하게 따르는 경향이 있어,
+      실체적 항변만으로는 패소가 사실상 예정된 사건이었습니다.
+    </p>
+    <p>
+      공동 피고의 다른 대리인들은 여전히 "진실한 변제였다", "통모한 적 없다"는 방향으로 다투려 했습니다.
+      신한솔 변호사의 진단은 달랐습니다. 기울어진 운동장에서 같은 논리로 정면승부를 거는 것은
+      패소 판결문을 한 장 더 받는 결과로 끝날 가능성이 높다는 판단 하에, 사건의 시간 축을 해부하기 시작했습니다.
+    </p>
+  </div>
+
+  <div class="content-section">
+    <h2>II. 핵심 쟁점 — 제척기간의 기산점</h2>
+
+    <div class="law-box">
+      <span class="law-box-label">민법 제406조 제2항</span>
+      전항의 소는 채권자가 취소원인을 <strong>안 날로부터 1년</strong>, 법률행위 있은 날로부터 5년 내에 제기하여야 한다.
+    </div>
+
+    <p>
+      사해행위취소권은 무제한의 권리가 아닙니다. 이 제척기간을 넘기면
+      본안에서 아무리 강한 증거를 쥐고 있어도 청구 자체가 부적법해집니다.
+    </p>
+    <p>
+      다만 대법원은 '취소원인을 안 날'의 의미를 엄격하게 해석합니다.
+      단순히 자금 이동 사실을 아는 것만으로는 부족하고,
+      <strong>구체적인 사해행위의 존재와 채무자의 사해의사까지 알았을 것</strong>을 요구합니다.
+      원고는 이 높은 입증 기준을 방패 삼아 "선행 소송 결과를 보고서야 비로소 알았다"는 논리로 맞섰습니다.
+    </p>
+
+    <div class="doc-box">
+      <span class="doc-box-label">대법원 2000. 9. 29. 선고 2000다3262 판결 취지</span>
+      채권자가 취소원인을 알았다고 하기 위해서는 단순히 채무자가 재산의 처분행위를 하였다는 사실을 아는 것만으로는 부족하고,
+      구체적인 사해행위의 존재를 알고 나아가 채무자에게 사해의 의사가 있었다는 사실까지 알 것을 요한다.
+    </div>
+  </div>
+
+  <div class="content-section">
+    <h2>III. 변론 전략</h2>
+    <p>
+      의뢰인이 보관하던 통화 녹음 파일 10여 통이 사건의 출발점이었습니다.
+      녹음에는 원고 측 임원이 의뢰인에게 채무자의 재정 상황, 편파 변제 정황을 구체적으로 언급한 대화가 담겨 있었습니다.
+    </p>
+    <p>
+      신한솔 변호사는 AI 음성인식 기술로 전 통화를 텍스트로 변환하고,
+      변호사가 직접 검수하여 증거로 정리했습니다.
+      이 녹취록에 담긴 대화는 소 제기일로부터 약 <strong>1년 5개월 전</strong>의 것이었습니다.
+    </p>
+    <p>
+      핵심은 이 녹취록만으로 제척기간 도과가 인정되지 않는다는 점이었습니다.
+      대법원이 요구하는 '안 날'은 자금 이동 사실의 인식이 아니라
+      사해행위의 실체와 채무자의 사해의사까지 인식한 시점을 의미하기 때문입니다.
+      신한솔 변호사는 선행 소송 기록 수백 페이지를 교차 분석하여,
+      원고가 사해행위의 실체를 소 제기 1년 이상 전부터 이미 구체적으로 인식하고 있었음을
+      대법원의 '안 날' 요건에 맞추어 항목별로 입증해 냈습니다.
+    </p>
+  </div>
+
+  <div class="content-section">
+    <h2>IV. 결과</h2>
+    <p>
+      대구지방법원은 원고가 적어도 선행 채권자가 사해행위취소소송을 제기한 시점에는
+      취소원인을 알았다고 봄이 상당하고, 그로부터 1년이 도과한 뒤 소를 제기한 이상
+      제척기간이 도과하여 부적법하다고 판단하였습니다.
+    </p>
+    <p>
+      본안 판단 없이 소 각하. 피고 전원 완전 승소입니다.
+      선행 사건의 패소 이력, 채무초과 상태의 변제라는 강한 사해 추정에도 불구하고,
+      실체가 아닌 시간을 다툰 결과입니다.
+    </p>
+  </div>
+
+  <div class="comment-box">
+    <h3>변호사 논평</h3>
+    <p>
+      이미 기울어진 판에서 같은 논리로 다시 싸우는 것은 용기가 아닙니다.
+      어떤 쟁점에서 싸울 것인지를 먼저 선택하는 것이 변호인의 역할입니다.
+      이 사건에서 무심코 넘길 수 있었던 통화 녹음 파일들이,
+      실체 다툼이 아닌 시간 다툼의 결정적 증거가 되었습니다.
+      사해행위취소 소장을 받은 순간, 상대방에게 먼저 연락하여 해명하려 들지 마십시오.
+      그 통화 기록과 메시지가 상대방의 증거가 됩니다.
+    </p>
+  </div>
+
+  <div class="nav-cases">
+    <a href="case-001.html" class="nav-case-link">← 이전 사례</a>
+    <a href="cases.html" class="nav-case-link">전체 목록 →</a>
+  </div>
+
+</div>
+
+<div class="case-cta">
+  <p>
+    사해행위취소 소장이나 가압류 결정문을 받고 당황하셨습니까.<br>
+    신한솔 변호사가 직접 검토합니다.
+  </p>
+  <a href="index.html#contact" class="cta-btn">1:1 사전 진단 신청하기</a>
+</div>
+
+</body>
+</html>

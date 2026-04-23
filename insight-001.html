@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>월간 궤도 창간호 2026년 4월 | 신한솔 변호사</title>
+<meta name="description" content="신한솔 변호사의 법률 실무 해제지 월간 궤도 창간호. 중대재해처벌법 절차 해부, 소수주주 축출 구조, 이달의 판례.">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700&family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --burgundy: #4B0F0F;
+    --burgundy-dark: #2D0808;
+    --cream: #FAF5EE;
+    --cream-dark: #F0E8DC;
+    --gold: #C5A55A;
+    --gold-light: #D4B97A;
+    --text-dark: #1A0A0A;
+    --text-mid: #4A2A2A;
+    --text-light: #8A6A6A;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Noto Sans KR', sans-serif; background: var(--cream); color: var(--text-dark); }
+
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(45,8,8,0.97); backdrop-filter: blur(8px);
+    padding: 0 40px; height: 64px;
+    display: flex; align-items: center; justify-content: space-between;
+    border-bottom: 1px solid rgba(197,165,90,0.3);
+  }
+  .nav-logo { font-family: 'Noto Serif KR', serif; font-size: 15px; color: var(--cream); text-decoration: none; }
+  .nav-logo span { color: var(--gold); font-size: 10px; display: block; letter-spacing: 0.1em; font-family: 'Noto Sans KR', sans-serif; font-weight: 300; }
+  .nav-back { font-size: 13px; color: rgba(250,245,238,0.6); text-decoration: none; transition: color 0.2s; }
+  .nav-back:hover { color: var(--gold); }
+
+  .insight-header {
+    background: var(--burgundy-dark);
+    padding: 80px 40px 60px;
+  }
+  .insight-header-inner { max-width: 800px; margin: 0 auto; }
+  .issue-number { font-size: 10px; letter-spacing: 0.3em; color: var(--gold); text-transform: uppercase; margin-bottom: 8px; }
+  .issue-date { font-size: 13px; color: rgba(250,245,238,0.4); font-weight: 300; margin-bottom: 28px; letter-spacing: 0.05em; }
+  .issue-title {
+    font-family: 'Noto Serif KR', serif;
+    font-size: clamp(26px,4vw,42px); color: var(--cream);
+    font-weight: 700; line-height: 1.4; margin-bottom: 32px;
+  }
+  .issue-toc {
+    border-top: 1px solid rgba(197,165,90,0.2);
+    padding-top: 24px; display: flex; flex-wrap: wrap; gap: 12px;
+  }
+  .toc-item {
+    font-size: 12px; color: rgba(250,245,238,0.5);
+    letter-spacing: 0.05em; font-weight: 300;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .toc-item::before { content: '·'; color: var(--gold); }
+
+  .download-bar {
+    background: white; border-bottom: 1px solid var(--cream-dark);
+    padding: 16px 40px;
+    display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  }
+  .download-bar-left { font-size: 13px; color: var(--text-light); font-weight: 300; }
+  .download-bar-left strong { color: var(--text-dark); font-weight: 500; }
+  .btn-download {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--burgundy); color: var(--cream);
+    padding: 10px 24px; font-size: 12px; font-weight: 500;
+    letter-spacing: 0.08em; text-decoration: none;
+    transition: background 0.2s; white-space: nowrap;
+    font-family: 'Noto Sans KR', sans-serif;
+  }
+  .btn-download:hover { background: var(--burgundy-dark); }
+  .btn-download svg { width: 14px; height: 14px; fill: currentColor; }
+
+  .insight-content { max-width: 800px; margin: 0 auto; padding: 64px 40px 100px; }
+
+  .insight-section { margin-bottom: 64px; }
+  .section-header {
+    display: flex; align-items: baseline; gap: 16px;
+    margin-bottom: 28px; padding-bottom: 16px;
+    border-bottom: 1px solid var(--text-dark);
+  }
+  .section-num { font-family: 'Noto Serif KR', serif; font-size: 13px; color: var(--gold); letter-spacing: 0.1em; }
+  .section-tag {
+    font-size: 10px; letter-spacing: 0.2em;
+    background: var(--burgundy); color: var(--cream);
+    padding: 3px 8px; text-transform: uppercase; font-weight: 400;
+  }
+  .section-title { font-family: 'Noto Serif KR', serif; font-size: 22px; color: var(--text-dark); font-weight: 700; line-height: 1.4; }
+
+  .insight-section p { font-size: 15px; color: var(--text-mid); line-height: 2.1; font-weight: 300; margin-bottom: 20px; }
+  .insight-section p strong { color: var(--text-dark); font-weight: 600; }
+
+  /* 기관 테이블 */
+  .agency-table {
+    width: 100%; border-collapse: collapse;
+    margin: 28px 0; font-size: 13px;
+  }
+  .agency-table th {
+    background: var(--burgundy); color: var(--cream);
+    padding: 10px 14px; text-align: left;
+    font-weight: 500; letter-spacing: 0.05em;
+    font-size: 11px;
+  }
+  .agency-table td {
+    padding: 10px 14px; border-bottom: 1px solid var(--cream-dark);
+    color: var(--text-mid); line-height: 1.7; vertical-align: top;
+  }
+  .agency-table tr:last-child td { border-bottom: none; }
+  .agency-table tr:nth-child(even) td { background: white; }
+
+  /* 공격 수단 리스트 */
+  .attack-list { list-style: none; margin: 24px 0; }
+  .attack-list li {
+    padding: 14px 16px 14px 20px;
+    border-left: 3px solid var(--cream-dark);
+    margin-bottom: 8px; background: white;
+    font-size: 14px; color: var(--text-mid); line-height: 1.8;
+    position: relative;
+  }
+  .attack-list li strong { color: var(--burgundy); font-weight: 700; display: block; margin-bottom: 4px; font-size: 13px; }
+  .attack-list li:hover { border-left-color: var(--burgundy); }
+
+  .quote-box {
+    background: white; border-left: 4px solid var(--burgundy);
+    padding: 24px 28px; margin: 28px 0;
+    font-size: 14px; color: var(--text-mid); line-height: 1.9; font-weight: 300;
+  }
+  .quote-source { font-size: 11px; color: var(--text-light); margin-top: 12px; letter-spacing: 0.05em; }
+
+  .comment-box { background: var(--burgundy-dark); padding: 32px 36px; margin: 32px 0; }
+  .comment-label { font-size: 10px; letter-spacing: 0.25em; color: var(--gold); text-transform: uppercase; margin-bottom: 14px; }
+  .comment-box p { font-size: 15px; color: rgba(250,245,238,0.82); line-height: 2.1; font-weight: 300; margin-bottom: 0; }
+
+  /* 판례 카드 */
+  .ruling-card {
+    background: white; border: 1px solid var(--cream-dark);
+    border-top: 3px solid var(--gold);
+    padding: 28px 32px; margin: 24px 0;
+  }
+  .ruling-case { font-size: 11px; color: var(--gold); letter-spacing: 0.1em; margin-bottom: 8px; font-weight: 600; }
+  .ruling-title { font-family: 'Noto Serif KR', serif; font-size: 17px; color: var(--text-dark); font-weight: 700; margin-bottom: 14px; line-height: 1.5; }
+  .ruling-body { font-size: 14px; color: var(--text-mid); line-height: 1.9; font-weight: 300; margin-bottom: 16px; }
+  .ruling-implication {
+    font-size: 13px; color: var(--text-light);
+    padding-top: 14px; border-top: 1px solid var(--cream-dark);
+    line-height: 1.8;
+  }
+  .ruling-implication strong { color: var(--burgundy); font-weight: 600; }
+
+  .section-divider { border: none; border-top: 1px solid var(--cream-dark); margin: 56px 0; }
+
+  .download-section {
+    margin-top: 64px; padding: 48px 40px;
+    background: white; border: 1px solid var(--cream-dark); text-align: center;
+  }
+  .download-section p { font-size: 14px; color: var(--text-light); margin-bottom: 24px; font-weight: 300; line-height: 1.8; }
+  .btn-download-large {
+    display: inline-flex; align-items: center; gap: 12px;
+    background: var(--burgundy); color: var(--cream);
+    padding: 16px 48px; font-size: 14px; font-weight: 500;
+    letter-spacing: 0.08em; text-decoration: none; transition: background 0.2s;
+    font-family: 'Noto Sans KR', sans-serif;
+  }
+  .btn-download-large:hover { background: var(--burgundy-dark); }
+
+  .nav-issues {
+    display: flex; justify-content: space-between;
+    padding: 32px 0; margin-top: 48px;
+    border-top: 1px solid var(--cream-dark);
+  }
+  .nav-issue-link { font-size: 13px; color: var(--text-light); text-decoration: none; transition: color 0.2s; }
+  .nav-issue-link:hover { color: var(--burgundy); }
+
+  .insight-cta { background: var(--burgundy); padding: 48px 40px; text-align: center; }
+  .insight-cta p { font-size: 14px; color: rgba(250,245,238,0.7); margin-bottom: 24px; line-height: 1.8; font-weight: 300; }
+  .cta-btn {
+    display: inline-block; background: var(--gold); color: var(--burgundy-dark);
+    padding: 14px 44px; font-size: 13px; font-weight: 700; letter-spacing: 0.08em;
+    text-decoration: none; transition: background 0.2s; font-family: 'Noto Sans KR', sans-serif;
+  }
+  .cta-btn:hover { background: var(--gold-light); }
+
+  @media (max-width: 768px) {
+    nav { padding: 0 20px; }
+    .insight-header { padding: 60px 24px 40px; }
+    .download-bar { padding: 14px 20px; flex-wrap: wrap; }
+    .insight-content { padding: 48px 20px 60px; }
+    .comment-box { padding: 24px 20px; }
+    .download-section { padding: 36px 24px; }
+    .insight-cta { padding: 40px 24px; }
+    .agency-table { font-size: 12px; }
+    .agency-table th, .agency-table td { padding: 8px 10px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">
+    신한솔 변호사
+    <span>SHIN HANSOL, ATTORNEY AT LAW</span>
+  </a>
+  <a href="insight.html" class="nav-back">← 월간 궤도 목록</a>
+</nav>
+
+<div class="insight-header">
+  <div class="insight-header-inner">
+    <p class="issue-number">월간 궤도 · 창간호 Vol.001</p>
+    <p class="issue-date">2026년 4월호</p>
+    <h1 class="issue-title">중대재해처벌법 절차의 지도,<br>소수주주 축출의 구조,<br>이달의 판례</h1>
+    <div class="issue-toc">
+      <span class="toc-item">중대재해 | 사망사고 발생 시 절차 해부</span>
+      <span class="toc-item">기업 | 소수주주 축출의 법구조</span>
+      <span class="toc-item">판례 | 성과급·주식상속 대법원 판결</span>
+    </div>
+  </div>
+</div>
+
+<div class="download-bar">
+  <p class="download-bar-left">
+    <strong>월간 궤도 창간호 (2026년 4월)</strong> — PDF 전문을 받아보실 수 있습니다.
+  </p>
+  <a href="pdf/gwedo-2026-04.pdf" class="btn-download">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path d="M12 16l-5-5h3V4h4v7h3l-5 5zm-7 2h14v2H5v-2z"/>
+    </svg>
+    PDF 전문 받기
+  </a>
+</div>
+
+<div class="insight-content">
+
+  <!-- ===== 섹션 1 ===== -->
+  <div class="insight-section">
+    <div class="section-header">
+      <span class="section-num">01</span>
+      <span class="section-tag">중대재해</span>
+      <h2 class="section-title">사업장에서 근로자가 사망한 경우 — 절차의 지도</h2>
+    </div>
+
+    <p>
+      대구·경북 중소 제조업 사업장에서 근로자 사망 사고가 발생하면,
+      사업주가 가장 먼저 직면하는 것은 슬픔도 책임감도 아닌 '이해불가'의 감각입니다.
+      119와 경찰이 도착하고, 반나절이 채 지나지 않아 노동관서 감독관이 나타납니다.
+      이 모든 것이 한꺼번에 들이닥칩니다. 혼란의 상당 부분은 각 기관이 어떤 시간 축으로 움직이는지를
+      모르는 데서 발생합니다.
+    </p>
+
+    <table class="agency-table">
+      <thead>
+        <tr>
+          <th>기관</th>
+          <th>개입 시점</th>
+          <th>핵심 근거</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>경찰 / 검사</td>
+          <td>사고 인지 즉시</td>
+          <td>형사소송법 제222조 — 업무상과실치사 수사 개시</td>
+        </tr>
+        <tr>
+          <td>고용노동부 산업안전감독관</td>
+          <td>보고 접수 직후 (수 일)</td>
+          <td>산안법 제54조·제55조 — 작업중지명령·현장조사</td>
+        </tr>
+        <tr>
+          <td>산업안전보건공단(KOSHA)</td>
+          <td>수 일 내 임장, 의견서 수 주~수 개월</td>
+          <td>산안법 제56조·제156조 — 기술적 원인 조사</td>
+        </tr>
+        <tr>
+          <td>검찰 (본수사)</td>
+          <td>의견서 이첩 후 수 개월~1년 이상</td>
+          <td>중처법·산안법·업과사 병합 기소</td>
+        </tr>
+        <tr>
+          <td>근로복지공단</td>
+          <td>유족 산재 신청 후 (별도 트랙)</td>
+          <td>산업재해보상보험법 — 유족급여·구상권</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>
+      이 다섯 기관에 사업주는 같은 사고 경위를 각각 별도로 진술하게 됩니다.
+      각 기관에서의 진술은 이후 수사 단계에서 교차 대조됩니다.
+      <strong>변호인 선임이 초동 단계에서 이루어져야 하는 이유는,
+      사고 인식 단계의 진술이 이후 전체 절차의 기초 사실로 고착되기 때문입니다.</strong>
+    </p>
+    <p>
+      법 시행 이후 중대재해처벌법 위반 혐의 수사 사건은 700건을 상회하지만,
+      기소는 약 90건에 그칩니다. 다수의 사건이 수사 단계에서 종결된다는 의미입니다.
+      이 법의 실질적 승부처는 법정이 아니라 수사의 6개월입니다.
+    </p>
+
+    <div class="comment-box">
+      <p class="comment-label">변호사 논평</p>
+      <p>
+        사고 직후 사업주가 가장 먼저 해야 할 것은 두 가지입니다.
+        산안법 제54조의 보고 의무와 제56조의 현장 보존 의무를 정확히 이행하는 것,
+        그리고 변호인을 먼저 접촉하는 것입니다.
+        현장 훼손은 별건 형사처벌 대상이 됩니다(산안법 제56조 제3항).
+        위기관리 본능으로 증거를 치우거나 진술을 맞추려는 시도가
+        가장 치명적인 초동 실수입니다.
+      </p>
+    </div>
+  </div>
+
+  <hr class="section-divider">
+
+  <!-- ===== 섹션 2 ===== -->
+  <div class="insight-section">
+    <div class="section-header">
+      <span class="section-num">02</span>
+      <span class="section-tag">기업</span>
+      <h2 class="section-title">소수주주 축출의 구조 — 한국 상법이 가지 않은 길</h2>
+    </div>
+
+    <p>
+      한국 상법은 회사의 의사결정을 일관되게 다수결 원리로 설계했습니다.
+      대주주가 이 설계를 활용하여 소수주주의 지분 가치를 체계적으로 축소하는
+      수단은 크게 네 가지입니다.
+    </p>
+
+    <ul class="attack-list">
+      <li>
+        <strong>① 제3자 배정 유상증자를 통한 지분 희석</strong>
+        대주주 우호 세력에게 신주를 배정하면 소수주주 지분 비율이 자동 축소됩니다.
+        저가 발행 시 비율 축소와 가치 저평가가 동시에 발생합니다.
+        '경영상 목적'의 외피를 두르면 민사 경로도 대부분 막힙니다.
+      </li>
+      <li>
+        <strong>② 전환사채·신주인수권부사채의 리픽싱 조항</strong>
+        주가 하락 시 전환 가액이 하향 조정되어 기존 주주 지분을 추가 희석합니다.
+        투자자 보호 장치로 설계된 리픽싱이 지배력 강화 장치로 전환됩니다.
+      </li>
+      <li>
+        <strong>③ 배당 거부</strong>
+        한국 상법상 소수주주의 배당 청구권은 구체적 결의가 선행되어야 발생합니다.
+        결의가 없으면 청구권도 없습니다. 이것이 배당 거부 공격에 대한
+        법리적 방어가 실질적으로 불가능한 구조적 이유입니다.
+      </li>
+      <li>
+        <strong>④ 감자·주식 병합을 통한 압박</strong>
+        대주주가 3분의 2 이상 의결권을 확보하면 불균등 감자로
+        소수주주 지분을 사실상 소멸시킬 수 있습니다.
+      </li>
+    </ul>
+
+    <p>
+      미국 델라웨어주·매사추세츠주 판례법은 폐쇄회사에서 지배주주가
+      소수주주에 대하여 신인의무(fiduciary duty)를 부담한다는 법리를 확립했습니다.
+      독일 기업집단법(Konzernrecht)은 지배 기업의 손해 보전 의무를 실체법으로 규율합니다.
+      <strong>한국 상법은 이 단계에 이르지 못했습니다.</strong>
+      비상장 폐쇄회사에서 소수주주가 대주주의 버티기 앞에 법적으로 무력해지는
+      구조적 배경입니다.
+    </p>
+
+    <div class="quote-box">
+      소수주주의 방어가 회사법만으로 이루어지기 어렵다면,
+      진짜 싸움은 지분 투자 시점의 주주간계약(SHA)에서 끝납니다.
+      신주 발행 시 우선인수권, 반희석 조항, 배당 최소 기준, 동의 사항(reserved matters), 풋옵션 —
+      이 조항들 중 하나가 빠져 있거나 모호하게 규정된 경우,
+      그 공백을 회사법으로 사후에 메우기는 어렵습니다.
+      <p class="quote-source">월간 궤도 창간호 섹션 2 결어</p>
+    </div>
+
+    <div class="comment-box">
+      <p class="comment-label">변호사 논평</p>
+      <p>
+        법원이 배당을 명령하는 제도가 없고, 유상증자의 경영상 목적 판단을
+        실체적 공정성 관점에서 대체할 통로도 없습니다.
+        소수주주가 이기는 시나리오는 사실상 두 가지입니다.
+        대주주가 형사 리스크를 드러낸 경우, 또는 엑시트를 유리한 가격에 성사시키는 경우.
+        들어갈 때 막아야 합니다. 나올 때는 늦습니다.
+      </p>
+    </div>
+  </div>
+
+  <hr class="section-divider">
+
+  <!-- ===== 섹션 3 ===== -->
+  <div class="insight-section">
+    <div class="section-header">
+      <span class="section-num">03</span>
+      <span class="section-tag">판례</span>
+      <h2 class="section-title">이달의 판례 — 대법원 주목할 판결 둘</h2>
+    </div>
+
+    <div class="ruling-card">
+      <p class="ruling-case">대법원 2026. 1. 29. 선고 2022다255454 판결</p>
+      <p class="ruling-title">경영성과급의 평균임금 해당 여부 및 재직자 조건의 효력</p>
+      <p class="ruling-body">
+        당기순이익·영업이익 등 재무지표 달성에 연동된 특별성과급은
+        근로의 양이나 질에 대응하는 대가로 볼 수 없어 평균임금 산정 기초가 되는 임금에 해당하지 않으며,
+        지급 시점 재직자 조건도 유효하다는 판시입니다.
+        이후 2026. 2.~3. 선고 후속 판결들에서 일관되게 확인되었습니다.
+      </p>
+      <p class="ruling-implication">
+        <strong>실무 함의:</strong>
+        성과급의 임금성 판단은 '지급 조건의 구조'에서 갈립니다.
+        재무지표 달성 연동이면 평균임금성이 부정되고,
+        개인 근무실적 연동이면 임금성이 인정될 여지가 있습니다.
+        취업규칙의 성과급 지급 조항 문언을 지금 확인하십시오.
+        퇴직금·산재보상금 분쟁이 터진 뒤에는 문구 수정이 늦습니다.
+      </p>
+    </div>
+
+    <div class="ruling-card">
+      <p class="ruling-case">대법원 2025. 9. 11. 선고 2025다211120 판결</p>
+      <p class="ruling-title">주식 공동상속 시 명의개서 및 주주권 확인의 범위</p>
+      <p class="ruling-body">
+        상속재산인 주식은 상속 개시와 동시에 상속인들의 준공유 상태가 되며,
+        법정상속분에 따라 당연히 분할 귀속하는 것이 아닙니다.
+        단독 주주 확인청구는 각하, 공유 상태 명의개서는 공유자 전원의 의사가 필요,
+        자신의 공유지분에 관한 주주권 확인청구는 인용된다는 구조를 확정하였습니다.
+      </p>
+      <p class="ruling-implication">
+        <strong>실무 함의:</strong>
+        창업자 사망 후 상속 분쟁이 발생하면 주주명부는 사실상 동결되고,
+        의결권 행사는 권리행사자 지정 절차에 의존하게 됩니다.
+        창업자 생전에 주주간계약·정관·유언의 세 층에서 지배구조의
+        예측 가능성을 확보해두는 것이 이 판결을 읽고 해야 할 일입니다.
+      </p>
+    </div>
+
+  </div>
+
+  <!-- 하단 PDF 다운로드 -->
+  <div class="download-section">
+    <p>
+      이번 호 전문을 PDF로 받아보실 수 있습니다.<br>
+      조문·판례 사건번호가 포함된 해제 전문은 PDF에 수록되어 있습니다.
+    </p>
+    <a href="pdf/gwedo-2026-04.pdf" class="btn-download-large">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12 16l-5-5h3V4h4v7h3l-5 5zm-7 2h14v2H5v-2z"/>
+      </svg>
+      월간 궤도 창간호 PDF 전문 받기
+    </a>
+  </div>
+
+  <div class="nav-issues">
+    <a href="insight.html" class="nav-issue-link">← 전체 목록</a>
+    <span style="font-size:13px; color: var(--cream-dark);">다음 호 준비 중</span>
+  </div>
+
+</div>
+
+<div class="insight-cta">
+  <p>
+    이번 호 내용과 관련하여 구체적인 사안이 있으십니까.<br>
+    신한솔 변호사가 직접 검토합니다.
+  </p>
+  <a href="index.html#contact" class="cta-btn">1:1 사전 진단 신청하기</a>
+</div>
+
+</body>
+</html>

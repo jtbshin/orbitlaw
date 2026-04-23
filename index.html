@@ -1,0 +1,1305 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>신한솔 변호사 | 법무법인 가나다 파트너</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700&family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --burgundy: #4B0F0F;
+    --burgundy-dark: #2D0808;
+    --burgundy-light: #6B1A1A;
+    --cream: #FAF5EE;
+    --cream-dark: #F0E8DC;
+    --gold: #C5A55A;
+    --gold-light: #D4B97A;
+    --text-dark: #1A0A0A;
+    --text-mid: #4A2A2A;
+    --text-light: #8A6A6A;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Noto Sans KR', sans-serif;
+    background: var(--cream);
+    color: var(--text-dark);
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(75, 15, 15, 0.96);
+    backdrop-filter: blur(8px);
+    padding: 0 40px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(197, 165, 90, 0.3);
+  }
+
+  .nav-logo {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 16px;
+    color: var(--cream);
+    letter-spacing: 0.05em;
+  }
+
+  .nav-logo span {
+    color: var(--gold);
+    font-size: 11px;
+    display: block;
+    letter-spacing: 0.1em;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 300;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: rgba(250, 245, 238, 0.7);
+    text-decoration: none;
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    font-weight: 400;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--gold); }
+
+  .nav-cta {
+    background: var(--gold);
+    color: var(--burgundy-dark) !important;
+    padding: 8px 20px;
+    font-weight: 700 !important;
+    font-size: 12px !important;
+    letter-spacing: 0.05em;
+    transition: background 0.2s !important;
+  }
+
+  .nav-cta:hover { background: var(--gold-light) !important; color: var(--burgundy-dark) !important; }
+
+  /* 햄버거 버튼 */
+  .nav-hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 8px;
+    background: none;
+    border: none;
+  }
+  .nav-hamburger span {
+    display: block;
+    width: 22px; height: 2px;
+    background: var(--cream);
+    transition: all 0.3s;
+  }
+  .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+  .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  /* 모바일 드롭다운 메뉴 */
+  .nav-mobile-menu {
+    display: none;
+    position: fixed;
+    top: 64px; left: 0; right: 0;
+    background: rgba(45,8,8,0.98);
+    backdrop-filter: blur(8px);
+    z-index: 99;
+    border-bottom: 1px solid rgba(197,165,90,0.3);
+    padding: 8px 0;
+  }
+  .nav-mobile-menu.open { display: block; }
+  .nav-mobile-menu a {
+    display: block;
+    padding: 16px 24px;
+    font-size: 14px;
+    color: rgba(250,245,238,0.8);
+    text-decoration: none;
+    letter-spacing: 0.08em;
+    border-bottom: 1px solid rgba(197,165,90,0.1);
+    transition: color 0.2s;
+  }
+  .nav-mobile-menu a:last-child { border-bottom: none; }
+  .nav-mobile-menu a:hover { color: var(--gold); }
+  .nav-mobile-menu .mobile-cta {
+    color: var(--gold);
+    font-weight: 700;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    background: var(--burgundy-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    padding: 64px 40px 0;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse at 20% 50%, rgba(197, 165, 90, 0.06) 0%, transparent 60%),
+      radial-gradient(ellipse at 80% 20%, rgba(107, 26, 26, 0.4) 0%, transparent 50%);
+  }
+
+  .hero-inner {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    max-width: 800px;
+  }
+
+  .hero-label {
+    font-size: 11px;
+    letter-spacing: 0.3em;
+    color: var(--gold);
+    font-weight: 400;
+    margin-bottom: 32px;
+    text-transform: uppercase;
+  }
+
+  .hero-title {
+    font-family: 'Noto Serif KR', serif;
+    font-size: clamp(36px, 6vw, 72px);
+    font-weight: 700;
+    color: var(--cream);
+    line-height: 1.2;
+    margin-bottom: 24px;
+    letter-spacing: -0.02em;
+  }
+
+  .hero-title em {
+    color: var(--gold);
+    font-style: normal;
+  }
+
+  .hero-sub {
+    font-size: 16px;
+    color: rgba(250, 245, 238, 0.6);
+    line-height: 1.8;
+    margin-bottom: 48px;
+    font-weight: 300;
+    letter-spacing: 0.02em;
+  }
+
+  .hero-divider {
+    width: 1px;
+    height: 60px;
+    background: linear-gradient(to bottom, var(--gold), transparent);
+    margin: 0 auto 40px;
+  }
+
+  .hero-btn {
+    display: inline-block;
+    background: transparent;
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    padding: 16px 40px;
+    font-size: 13px;
+    letter-spacing: 0.15em;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s;
+    cursor: pointer;
+    font-family: 'Noto Sans KR', sans-serif;
+  }
+
+  .hero-btn:hover {
+    background: var(--gold);
+    color: var(--burgundy-dark);
+  }
+
+  /* ── SECTION COMMON ── */
+  section { padding: 100px 40px; }
+
+  .section-label {
+    font-size: 13px;
+    letter-spacing: 0.3em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    font-weight: 400;
+  }
+
+  .section-title {
+    font-family: 'Noto Serif KR', serif;
+    font-size: clamp(30px, 3.5vw, 48px);
+    font-weight: 700;
+    color: var(--text-dark);
+    line-height: 1.4;
+    margin-bottom: 48px;
+  }
+
+  /* ── ABOUT ── */
+  #about {
+    background: var(--cream);
+  }
+
+  #about .section-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 64px;
+    align-items: start;
+  }
+
+  .about-photo-wrap {
+    position: static;
+  }
+
+  .about-photo {
+    width: 100%;
+    aspect-ratio: 3/4;
+    background: var(--burgundy-dark);
+    overflow: hidden;
+    border-top: 3px solid var(--gold);
+  }
+
+  .about-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+  }
+
+  .about-quote {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 22px;
+    color: var(--burgundy);
+    line-height: 2;
+    font-weight: 600;
+    border-left: 3px solid var(--gold);
+    padding-left: 24px;
+    margin-bottom: 52px;
+  }
+
+  .about-block { margin-bottom: 44px; }
+
+  .about-block-title {
+    font-size: 13px;
+    letter-spacing: 0.3em;
+    color: var(--gold);
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--text-dark);
+  }
+
+  .about-list { list-style: none; }
+
+  .about-list li {
+    font-size: 17px;
+    color: var(--text-dark);
+    font-weight: 600;
+    line-height: 1.6;
+    padding: 10px 0 10px 16px;
+    border-bottom: 1px solid var(--cream-dark);
+    position: relative;
+  }
+
+  /* 약력 펼치기 토글 */
+  .about-toggle-btn {
+    display: none;
+    width: 100%;
+    background: none;
+    border: none;
+    border-top: 1px solid var(--cream-dark);
+    padding: 12px 0;
+    font-size: 12px;
+    color: var(--gold);
+    letter-spacing: 0.1em;
+    cursor: pointer;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 600;
+    text-align: center;
+  }
+
+  .about-list li::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 50%;
+    transform: translateY(-50%);
+    width: 4px; height: 4px;
+    background: var(--gold);
+  }
+
+  #insight .section-more {
+    border-left: none;
+    background: transparent;
+    border-top: 1px solid var(--cream-dark);
+    display: block;
+    padding: 14px 0;
+    text-align: right;
+  }
+
+  /* 섹션 더보기 링크 공통 */
+  .section-more {
+    display: block;
+    margin-top: 0;
+    padding: 16px 20px;
+    font-size: 13px;
+    color: var(--text-light);
+    text-decoration: none;
+    letter-spacing: 0.08em;
+    border-top: 1px solid var(--cream-dark);
+    border-left: 3px solid var(--burgundy);
+    background: var(--cream);
+    transition: color 0.2s, background 0.2s;
+    text-align: right;
+  }
+  .section-more:hover { color: var(--burgundy); background: white; }
+
+  /* ── EXPERTISE ── */
+  #expertise {
+    background: var(--burgundy-dark);
+    padding: 100px 40px;
+  }
+
+  #expertise .section-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  #expertise .section-title { color: var(--cream); }
+
+  .expertise-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+  }
+
+  .expertise-card {
+    background: rgba(250, 245, 238, 0.04);
+    border: 1px solid rgba(197, 165, 90, 0.15);
+    padding: 40px 32px;
+    transition: all 0.3s;
+    cursor: default;
+  }
+
+  .expertise-card:hover {
+    background: rgba(197, 165, 90, 0.08);
+    border-color: rgba(197, 165, 90, 0.4);
+  }
+
+  .expertise-num {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 15px;
+    color: var(--gold);
+    letter-spacing: 0.2em;
+    margin-bottom: 20px;
+  }
+
+  .expertise-name {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 24px;
+    color: var(--cream);
+    font-weight: 600;
+    margin-bottom: 12px;
+    line-height: 1.4;
+  }
+
+  .expertise-desc {
+    font-size: 16px;
+    color: rgba(250, 245, 238, 0.5);
+    line-height: 1.8;
+    font-weight: 300;
+  }
+
+  /* ── CASES ── */
+  #cases {
+    background: var(--cream-dark);
+    padding: 100px 40px;
+  }
+
+  #cases .section-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  /* cases 스크롤 힌트 */
+  .cases-scroll-hint {
+    display: none;
+    font-size: 11px;
+    color: var(--text-light);
+    letter-spacing: 0.1em;
+    margin-bottom: 16px;
+  }
+  @media (max-width: 768px) {
+    .cases-scroll-hint { display: block; }
+  }
+
+  .cases-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+
+  .case-card {
+    background: var(--cream);
+    border-left: 3px solid var(--burgundy);
+    padding: 32px;
+    transition: transform 0.2s;
+  }
+
+  .case-card:hover { transform: translateX(4px); }
+
+  .case-tag {
+    font-size: 13px;
+    letter-spacing: 0.2em;
+    color: var(--burgundy);
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+
+  .case-title {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 22px;
+    color: var(--text-dark);
+    font-weight: 700;
+    margin-bottom: 12px;
+    line-height: 1.5;
+  }
+
+  .case-desc {
+    font-size: 16px;
+    color: var(--text-light);
+    line-height: 1.8;
+    font-weight: 300;
+  }
+
+  .case-result {
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid var(--cream-dark);
+    font-size: 15px;
+    color: var(--burgundy);
+    font-weight: 700;
+    letter-spacing: 0.05em;
+  }
+
+  /* ── INSIGHT (월간궤도) ── */
+  #insight {
+    background: var(--cream);
+    padding: 100px 40px;
+  }
+
+  #insight .section-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .insight-list {
+    border-top: 1px solid var(--text-dark);
+  }
+
+  .insight-item {
+    display: flex;
+    align-items: baseline;
+    gap: 32px;
+    padding: 28px 0;
+    border-bottom: 1px solid var(--cream-dark);
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.2s;
+  }
+
+  .insight-item:hover .insight-title { color: var(--burgundy); }
+  .insight-item:hover .insight-arrow { transform: translateX(4px); }
+
+  .insight-date {
+    font-size: 14px;
+    color: var(--text-light);
+    letter-spacing: 0.05em;
+    flex-shrink: 0;
+    width: 60px;
+  }
+
+  .insight-tag {
+    font-size: 13px;
+    background: var(--burgundy);
+    color: var(--cream);
+    padding: 2px 8px;
+    letter-spacing: 0.1em;
+    flex-shrink: 0;
+  }
+
+  .insight-title {
+    font-size: 19px;
+    color: var(--text-dark);
+    font-weight: 500;
+    flex: 1;
+    line-height: 1.6;
+    transition: color 0.2s;
+  }
+
+  .insight-arrow {
+    color: var(--text-light);
+    font-size: 18px;
+    transition: transform 0.2s;
+    flex-shrink: 0;
+  }
+
+  /* ── CTA ── */
+  #contact {
+    background: var(--burgundy);
+    padding: 100px 40px;
+    text-align: center;
+  }
+
+  #contact .section-label { color: rgba(197, 165, 90, 0.8); }
+
+  #contact .section-title {
+    color: var(--cream);
+    margin-bottom: 24px;
+  }
+
+  .contact-sub {
+    font-size: 19px;
+    color: rgba(250, 245, 238, 0.6);
+    line-height: 1.8;
+    margin-bottom: 56px;
+    font-weight: 300;
+  }
+
+  .contact-btn-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .contact-btn {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--burgundy-dark);
+    padding: 20px 52px;
+    font-size: 17px;
+    letter-spacing: 0.08em;
+    font-weight: 700;
+    text-decoration: none;
+    transition: background 0.2s;
+    font-family: 'Noto Sans KR', sans-serif;
+  }
+
+  .contact-btn:hover { background: var(--gold-light); }
+
+  .contact-btn-tel {
+    display: inline-block;
+    background: transparent;
+    border: 1px solid rgba(197,165,90,0.6);
+    color: var(--gold);
+    padding: 20px 52px;
+    font-size: 17px;
+    letter-spacing: 0.08em;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.2s;
+    font-family: 'Noto Sans KR', sans-serif;
+  }
+
+  .contact-btn-tel:hover {
+    background: rgba(197,165,90,0.1);
+    border-color: var(--gold);
+  }
+
+  .contact-notice {
+    margin-top: 20px;
+    font-size: 13px;
+    color: rgba(250,245,238,0.35);
+    font-weight: 300;
+    letter-spacing: 0.03em;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--burgundy-dark);
+    padding: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid rgba(197, 165, 90, 0.15);
+  }
+
+  .footer-left {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 16px;
+    color: rgba(250, 245, 238, 0.5);
+  }
+
+  .footer-right {
+    font-size: 14px;
+    color: rgba(250, 245, 238, 0.3);
+    line-height: 1.8;
+    text-align: right;
+  }
+
+  /* ── MODAL ── */
+  .modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(20, 5, 5, 0.85);
+    z-index: 200;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(4px);
+  }
+
+  .modal-overlay.active { display: flex; }
+
+  .modal {
+    background: var(--cream);
+    max-width: 600px;
+    width: 90%;
+    max-height: 80vh;
+    overflow-y: auto;
+    padding: 56px;
+    position: relative;
+  }
+
+  .modal-close {
+    position: absolute;
+    top: 20px; right: 24px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: var(--text-light);
+    cursor: pointer;
+    line-height: 1;
+  }
+
+  .modal-title {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 22px;
+    color: var(--burgundy);
+    font-weight: 700;
+    margin-bottom: 32px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--cream-dark);
+  }
+
+  /* MOBILE */
+  @media (max-width: 768px) {
+
+    /* NAV */
+    nav { padding: 0 20px; }
+    .nav-links { display: none; }
+    .nav-hamburger { display: flex; }
+
+    /* 전체 섹션 패딩 */
+    section { padding: 56px 20px; }
+
+    /* HERO */
+    .hero { padding: 64px 24px 48px; }
+    .hero-title { font-size: clamp(28px, 8vw, 44px); }
+    .hero-sub { font-size: 14px; }
+    .hero-label { font-size: 10px; margin-bottom: 20px; }
+
+    /* ABOUT — 사진 위, 텍스트 아래 */
+    .about-grid { grid-template-columns: 1fr; gap: 32px; }
+    .about-photo-wrap { max-width: 200px; margin: 0 auto; }
+    .about-quote { font-size: 16px; }
+    .about-block-title { font-size: 11px; }
+    .about-list li { font-size: 14px; padding: 9px 0 9px 14px; }
+    .about-toggle-btn { display: block !important; }
+    .about-list li.career-hidden { display: none; }
+
+
+/* --- 모바일 전문 분야 아코디언 스타일 --- */
+@media (max-width: 768px) {
+  #expertise { padding: 64px 20px; }
+  
+  /* 스크롤 힌트 삭제 (아코디언으로 바뀌므로 필요 없음) */
+  #expertise .cases-scroll-hint { display: none; }
+
+  .expertise-grid {
+    display: flex;
+    flex-direction: column; /* 세로 정렬 */
+    gap: 8px; /* 카드 간격 */
+    overflow-x: visible; /* 스크롤 해제 */
+    padding: 0;
+  }
+
+  .expertise-card {
+    min-width: 100%;
+    background: rgba(250, 245, 238, 0.05);
+    border: 1px solid rgba(197, 165, 90, 0.2);
+    padding: 20px 24px;
+    cursor: pointer;
+    transition: background 0.3s;
+    position: relative;
+  }
+
+  /* 아코디언 화살표 아이콘 추가를 위한 가상 요소 */
+  .expertise-card::after {
+    content: '▼';
+    position: absolute;
+    right: 24px;
+    top: 24px;
+    font-size: 10px;
+    color: var(--gold);
+    transition: transform 0.3s;
+  }
+
+  /* 활성화 시 화살표 회전 */
+  .expertise-card.active::after {
+    transform: rotate(180deg);
+  }
+
+  .expertise-num { 
+    font-size: 12px; 
+    margin-bottom: 4px; 
+  }
+
+  .expertise-name { 
+    font-size: 18px; 
+    margin-bottom: 0; /* 닫혔을 땐 여백 최소화 */
+  }
+
+  /* 핵심: 설명 부분 숨기기/보이기 애니메이션 */
+  .expertise-desc {
+    display: block; /* none 해제 */
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out, margin-top 0.3s;
+    font-size: 14px;
+    color: rgba(250, 245, 238, 0.7);
+    line-height: 1.6;
+    margin-top: 0;
+  }
+
+  /* 활성화 시 설명 노출 */
+  .expertise-card.active .expertise-desc {
+    max-height: 200px; /* 충분한 높이 */
+    margin-top: 16px;
+    padding-bottom: 8px;
+  }
+  
+  .expertise-card.active .expertise-name {
+    margin-bottom: 8px;
+  }
+}
+    /* CASES — 가로 스와이프, 카드 1개 = 화면 1개 */
+    #cases { padding: 56px 0; }
+    #cases .section-inner { overflow: visible; }
+    #cases .section-inner > .section-label,
+    #cases .section-inner > .section-title { padding: 0 20px; }
+    .cases-scroll-hint { display: block; padding: 0 20px; }
+    .cases-grid {
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      gap: 0;
+      padding: 0 20px 20px;
+      scrollbar-width: none;
+    }
+    .cases-grid::-webkit-scrollbar { display: none; }
+    .case-card {
+      min-width: calc(100vw - 40px);
+      max-width: calc(100vw - 40px);
+      scroll-snap-align: center;
+      flex-shrink: 0;
+      margin-right: 16px;
+      padding: 28px 24px 24px;
+      box-sizing: border-box;
+    }
+    .case-card:last-child { margin-right: 0; }
+    .case-tag { font-size: 11px; }
+    .case-title { font-size: 18px; line-height: 1.4; }
+    .case-desc { display: none; }
+    .case-result { font-size: 14px; }
+    .section-more { margin: 8px 20px 0; border-left: none; border-top: 1px solid var(--cream-dark); padding: 12px 0; text-align: right; background: transparent; }
+
+    /* INSIGHT */
+    #insight { padding: 56px 20px; }
+    .insight-item { flex-wrap: wrap; gap: 8px; padding: 20px 0; }
+    .insight-title { font-size: 15px; width: 100%; }
+    .insight-date { font-size: 12px; }
+    .insight-tag { font-size: 11px; }
+    .insight-arrow { display: none; }
+
+    /* CONTACT */
+    #contact { padding: 64px 20px; }
+    .contact-sub { font-size: 15px; }
+    .contact-btn-wrap { flex-direction: column; align-items: stretch; }
+    .contact-btn, .contact-btn-tel { text-align: center; padding: 18px 24px; font-size: 15px; }
+    .contact-notice { font-size: 12px; }
+
+    /* FOOTER */
+    footer { flex-direction: column; gap: 16px; text-align: center; padding: 32px 20px; }
+    .footer-right { text-align: center; font-size: 12px; }
+    .modal { padding: 40px 24px; }
+
+    /* section-title 모바일 크기 */
+    .section-title { font-size: clamp(22px, 6vw, 32px); margin-bottom: 32px; }
+    .section-label { font-size: 11px; }
+  }
+
+  /* SCROLL ANIMATION */
+  .fade-up {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .fade-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ── FLOATING CTA BAR ── */
+  .float-cta {
+    position: fixed;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 150;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    box-shadow: -4px 0 20px rgba(0,0,0,0.25);
+    overflow: hidden;
+    width: 56px;
+    border-radius: 8px 0 0 8px;
+  }
+
+  .float-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    text-decoration: none;
+    padding: 14px 8px;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    font-family: 'Noto Sans KR', sans-serif;
+    transition: all 0.2s;
+    white-space: nowrap;
+    line-height: 1.2;
+    text-align: center;
+  }
+
+  .float-btn + .float-btn {
+    border-top: 1px solid rgba(0,0,0,0.12);
+  }
+
+  .float-btn svg {
+    width: 22px; height: 22px;
+    flex-shrink: 0;
+  }
+
+  .float-btn-form {
+    background: var(--gold);
+    color: var(--burgundy-dark);
+  }
+  .float-btn-form:hover { background: var(--gold-light); }
+
+  .float-btn-kakao {
+    background: #FEE500;
+    color: #3A1D1D;
+  }
+  .float-btn-kakao:hover { background: #FFD700; }
+
+  .float-btn-tel {
+    background: var(--burgundy);
+    color: var(--cream);
+  }
+  .float-btn-tel:hover { background: var(--burgundy-light); }
+
+  @media (max-width: 768px) {
+    .float-cta { right: 0; top: 50%; transform: translateY(-50%); width: 52px; border-radius: 6px 0 0 6px; }
+    .float-btn { padding: 12px 6px; font-size: 9px; }
+  }
+
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">
+    신한솔 변호사
+    <span>SHIN HANSOL, ATTORNEY AT LAW</span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#about">변호사 소개</a></li>
+    <li><a href="#expertise">전문 분야</a></li>
+    <li><a href="#cases">성공 사례</a></li>
+    <li><a href="#insight">월간 궤도</a></li>
+    <li><a href="#contact" class="nav-cta">1:1 진단</a></li>
+  </ul>
+  <!-- 햄버거 버튼 (모바일) -->
+  <button class="nav-hamburger" id="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- 모바일 드롭다운 -->
+<div class="nav-mobile-menu" id="mobileMenu">
+  <a href="#about" onclick="closeMenu()">변호사 소개</a>
+  <a href="#expertise" onclick="closeMenu()">전문 분야</a>
+  <a href="#cases" onclick="closeMenu()">성공 사례</a>
+  <a href="#insight" onclick="closeMenu()">월간 궤도</a>
+  <a href="#contact" onclick="closeMenu()" class="mobile-cta">1:1 진단 신청</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <p class="hero-label">법무법인 가나다 파트너 변호사 · 대구</p>
+    <h1 class="hero-title">
+      사건을 <em>법리</em>가 아닌<br>
+      <em>전략</em>으로 재설계합니다
+    </h1>
+    <p class="hero-sub">
+      7년의 실전 데이터.<br>
+      형사·민사·기업·조세. 대구 법조타운에서 직접 수행합니다.
+    </p>
+    <div class="hero-divider"></div>
+    <a href="#contact" class="hero-btn">1:1 사전 진단 신청</a>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-inner">
+    <div class="about-grid fade-up">
+
+      <!-- 사진 (왼쪽) -->
+      <div class="about-photo-wrap">
+        <div class="about-photo">
+          <img src="lawyer.png" alt="신한솔 변호사">
+        </div>
+      </div>
+
+      <!-- 텍스트 (오른쪽) -->
+      <div class="about-right">
+        <p class="section-label">Attorney Profile</p>
+        <h2 class="section-title" style="color:var(--burgundy); margin-bottom:32px;">신한솔<br>법무법인 가나다 파트너 변호사</h2>
+
+        <p class="about-quote">
+          억울함은 감정이고, 재판은 논리입니다.<br>
+          저는 억울함을 논리로 변환하는 일을 합니다.
+        </p>
+
+        <!-- 학력 -->
+        <div class="about-block">
+          <p class="about-block-title">Education</p>
+          <ul class="about-list">
+            <li>제9회 변호사시험 합격</li>
+            <li>경북대학교 법학전문대학원 (9기) 졸업</li>
+            <li>경북대학교 글로벌인재학부 졸업</li>
+            <li>청구고등학교 졸업</li>
+          </ul>
+        </div>
+
+        <!-- 경력 및 활동 -->
+        <div class="about-block">
+          <p class="about-block-title">Career &amp; Activities</p>
+          <ul class="about-list" id="careerList">
+            <li>대법원 국선변호인</li>
+            <li>대구지방법원 논스톱 국선변호인</li>
+            <li>대구지방법원 항소심 국선변호인</li>
+            <li>대구지방법원 국선변호인</li>
+            <li>근로복지공단 대구지역본부 자문변호사</li>
+            <li>대구시체육회 법률자문</li>
+            <li class="career-hidden">경상북도경찰청 수사심의위원회 외부위원</li>
+            <li class="career-hidden">근로복지공단 대구지역본부 일반인사위원회 외부위원</li>
+            <li class="career-hidden">대구광역시 장애인시설팀 민간위탁심의위원회 위원</li>
+            <li class="career-hidden">대구시체육회 스포츠공정위원회 위원</li>
+            <li class="career-hidden">대구시체육회 선거운영위원회 위원</li>
+            <li class="career-hidden">대구축구협회 스포츠공정위원회 위원</li>
+            <li class="career-hidden">대구동부중학교 학교운영위원회 지역위원</li>
+            <li class="career-hidden">대구동부경찰서 수사민원상담변호사</li>
+            <li class="career-hidden">근로복지공단 송무유공표창</li>
+            <li class="career-hidden">KAIST 신경과학-인공지능 융합연구센터 연구협력변호사</li>
+            <li class="career-hidden">수성세무서 국세심사위원회 민간위원(전)</li>
+            <li class="career-hidden">법무법인 가나다 소속변호사</li>
+            <li class="career-hidden">(현) 법무법인 가나다 파트너변호사</li>
+          </ul>
+          <button class="about-toggle-btn" id="careerToggle" onclick="toggleCareer()">전체 경력 보기 ▼</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERTISE -->
+<section id="expertise">
+  <div class="section-inner">
+    <p class="section-label">Practice Areas</p>
+    <h2 class="section-title" style="color: var(--cream);">전문 분야</h2>
+    <p class="cases-scroll-hint" style="color:rgba(250,245,238,0.4);">← 옆으로 밀어보세요 →</p>
+    <div class="expertise-grid fade-up">
+      <div class="expertise-card">
+        <p class="expertise-num">01</p>
+        <h3 class="expertise-name">형사 · 수사 대응</h3>
+        <p class="expertise-desc">경찰 조사 전 대응부터 항고·재정신청까지. 수사 절차의 각 단계에 맞는 방어 전략.</p>
+      </div>
+      <div class="expertise-card">
+        <p class="expertise-num">02</p>
+        <h3 class="expertise-name">기업 · 영업비밀</h3>
+        <p class="expertise-desc">경업금지, 영업비밀 침해, 계약 분쟁. 기업 오너와 임원을 위한 선제적 법률 방어.</p>
+      </div>
+      <div class="expertise-card">
+        <p class="expertise-num">03</p>
+        <h3 class="expertise-name">조세 · 행정</h3>
+        <p class="expertise-desc">납세자 이의신청을 직접 심리한 경험으로. 과세당국의 논리를 역방향으로 읽는 불복 구조 설계.</p>
+      </div>
+      <div class="expertise-card">
+        <p class="expertise-num">04</p>
+        <h3 class="expertise-name">민사 · 손해배상</h3>
+        <p class="expertise-desc">입증 구조부터 강제집행까지. 요건사실 중심의 소송 설계.</p>
+      </div>
+      <div class="expertise-card">
+        <p class="expertise-num">05</p>
+        <h3 class="expertise-name">노동 · 부당징계</h3>
+        <p class="expertise-desc">노동위원회 실무 경향 분석. 징계 사유 특정과 양정 통제의 법리적 방어.</p>
+      </div>
+      <div class="expertise-card">
+        <p class="expertise-num">06</p>
+        <h3 class="expertise-name">IT · 가상자산</h3>
+        <p class="expertise-desc">코인 사기, 저작권, 영업비밀 디지털 영역. 기술적 쟁점과 법리를 함께 검토합니다.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CASES -->
+<section id="cases">
+  <div class="section-inner">
+    <p class="section-label">Case Results</p>
+    <h2 class="section-title">성공 사례</h2>
+    <p class="cases-scroll-hint">← 옆으로 밀어보세요 →</p>
+    <div class="cases-wrap">
+    <div class="cases-grid fade-up">
+      <div class="case-card">
+        <p class="case-tag">형사 · 상해</p>
+        <h3 class="case-title">CCTV 없는 10주 상해<br>반대신문으로 진술 붕괴 — 무죄</h3>
+        <p class="case-desc">수사 기록이 완벽해 보이는 상황에서 피해자 진술의 경험칙 위반을 집요하게 추궁, 재판부가 직접 피해자를 신문하는 국면을 유도하여 무죄 확정.</p>
+        <p class="case-result">→ 무죄</p>
+      </div>
+      <div class="case-card">
+        <p class="case-tag">민사 · 사해행위취소</p>
+        <h3 class="case-title">선행 사건 패소 이후<br>제척기간 도과 소 각하</h3>
+        <p class="case-desc">실체 다툼이 불리한 구조에서 시간 축을 해부. 통화 녹음 분석으로 제척기간 도과를 입증, 본안 판단 없이 전원 승소.</p>
+        <p class="case-result">→ 소 각하 (피고 완전 승소)</p>
+      </div>
+      <div class="case-card">
+        <p class="case-tag">민사 · 가처분</p>
+        <h3 class="case-title">동업자 영업금지가처분<br>전부 기각</h3>
+        <p class="case-desc">가맹계약서 기반 가처분을 가맹계약 실질 부재, 영업비밀 해당성 부정, 보전 필요성 불인정으로 전부 방어.</p>
+        <p class="case-result">→ 신청 전부 기각</p>
+      </div>
+      <div class="case-card">
+        <p class="case-tag">민사 · 처분문서</p>
+        <h3 class="case-title">본인 날인 차용증 10억<br>항소심 전부 승소</h3>
+        <p class="case-desc">처분문서 모순 해부 및 상사소멸시효 법리로 1심 패소 판결을 항소심에서 완전히 취소. 대법원 최종 확정.</p>
+        <p class="case-result">→ 항소심 전부 승소 · 대법원 확정</p>
+      </div>
+    </div>
+    <a href="cases.html" class="section-more">성공 사례 전체 보기 →</a>
+    </div>
+  </div>
+</section>
+
+<!-- INSIGHT -->
+<section id="insight">
+  <div class="section-inner">
+    <p class="section-label">Monthly Insight</p>
+    <h2 class="section-title">월간 궤도</h2>
+    <div class="insight-list fade-up">
+      <a href="insight-001.html" class="insight-item">
+        <span class="insight-date">2026.04</span>
+        <span class="insight-tag">창간호</span>
+        <span class="insight-title">중대재해처벌법 절차의 지도, 소수주주 축출의 구조, 이달의 판례</span>
+        <span class="insight-arrow">→</span>
+      </a>
+    </div>
+    <a href="insight.html" class="section-more" style="margin-top:8px;">월간 궤도 전체 보기 →</a>
+  </div>
+</section>
+<section id="contact">
+  <p class="section-label">Consultation</p>
+  <h2 class="section-title" style="max-width:640px; margin:0 auto 24px;">
+    신한솔 변호사가<br>직접 상담하고 검토합니다
+  </h2>
+  <p class="contact-sub">
+    초기 상담부터 사건 종결까지,<br>
+    신한솔 변호사가 직통으로 소통합니다.
+  </p>
+  <div class="contact-btn-wrap">
+    <a href="https://forms.gle/Mvb7VUjhDTFdU18s7" target="_blank" class="contact-btn">
+      1:1 사전 진단 신청하기
+    </a>
+    <a href="tel:01046879128" class="contact-btn-tel">
+      직통 연결 · 010-4687-9128
+    </a>
+  </div>
+  <p class="contact-notice">사건 개요를 미리 작성해 주시면 신한솔 변호사가 직접 검토 후 연락드립니다.</p>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-left">신한솔 변호사 · 법무법인 가나다</div>
+  <div class="footer-right">
+    대구광역시 수성구 동대구로 348-13 청담빌딩 3층
+  </div>
+</footer>
+
+<script>
+  // 약력 펼치기/접기
+  function toggleCareer() {
+    const items = document.querySelectorAll('.career-hidden');
+    const btn = document.getElementById('careerToggle');
+    const isOpen = btn.dataset.open === 'true';
+    items.forEach(el => el.style.display = isOpen ? 'none' : 'list-item');
+    btn.dataset.open = isOpen ? 'false' : 'true';
+    btn.textContent = isOpen ? '전체 경력 보기 ▼' : '접기 ▲';
+  }
+
+  function syncCareerDisplay() {
+    const items = document.querySelectorAll('.career-hidden');
+    const btn = document.getElementById('careerToggle');
+    if (window.innerWidth > 768) {
+      items.forEach(el => el.style.display = 'list-item');
+      if (btn) btn.style.display = 'none';
+    } else {
+      if (btn) btn.style.display = '';
+      // 초기 상태: 접힘. 이미 사용자가 열었으면(data-open) 유지
+      if (!btn || btn.dataset.open !== 'true') {
+        items.forEach(el => el.style.display = 'none');
+      }
+    }
+  }
+
+  syncCareerDisplay();
+  window.addEventListener('resize', syncCareerDisplay);
+
+  // 햄버거 메뉴
+  function toggleMenu() {
+    const menu = document.getElementById('mobileMenu');
+    const btn = document.getElementById('hamburger');
+    menu.classList.toggle('open');
+    btn.classList.toggle('open');
+  }
+  function closeMenu() {
+    document.getElementById('mobileMenu').classList.remove('open');
+    document.getElementById('hamburger').classList.remove('open');
+  }
+  // 외부 클릭시 닫기
+  document.addEventListener('click', function(e) {
+    const menu = document.getElementById('mobileMenu');
+    const btn = document.getElementById('hamburger');
+    if (!menu.contains(e.target) && !btn.contains(e.target)) {
+      menu.classList.remove('open');
+      btn.classList.remove('open');
+    }
+  });
+
+  // Scroll fade-up
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+  // Nav smooth
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+  });
+// 전문 분야 아코디언 제어 (모바일용)
+document.querySelectorAll('.expertise-card').forEach(card => {
+  card.addEventListener('click', function() {
+    // 모바일 환경에서만 작동하게 하려면 체크 (선택 사항)
+    if (window.innerWidth <= 768) {
+      // 클릭된 카드가 이미 활성화 상태면 닫고, 아니면 연다
+      const isActive = this.classList.contains('active');
+      
+      // 다른 모든 카드를 닫고 싶다면 아래 한 줄 추가 (하나만 열리는 방식)
+      // document.querySelectorAll('.expertise-card').forEach(c => c.classList.remove('active'));
+
+      if (!isActive) {
+        this.classList.add('active');
+      } else {
+        this.classList.remove('active');
+      }
+    }
+  });
+});
+</script>
+
+<!-- FLOATING CTA -->
+<div class="float-cta">
+
+  <!-- 1:1 사전진단 -->
+  <a href="https://forms.gle/Mvb7VUjhDTFdU18s7" target="_blank" class="float-btn float-btn-form">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+      <polyline points="14 2 14 8 20 8"/>
+      <line x1="16" y1="13" x2="8" y2="13"/>
+      <line x1="16" y1="17" x2="8" y2="17"/>
+    </svg>
+    사전<br>진단
+  </a>
+
+  <!-- 카카오 오픈채팅 -->
+  <a href="https://open.kakao.com/o/sQyeDNvh" target="_blank" class="float-btn float-btn-kakao">
+    <svg viewBox="0 0 24 24" fill="currentColor">
+      <path d="M12 3C6.477 3 2 6.582 2 11c0 2.83 1.694 5.337 4.286 6.918-.169.638-.633 2.296-.726 2.657-.114.44.162.434.341.316.14-.093 2.213-1.498 3.11-2.104.645.09 1.305.138 1.989.138 5.523 0 10-3.582 10-8s-4.477-8-10-8z"/>
+    </svg>
+    카카오<br>채팅
+  </a>
+
+  <!-- 직통 전화 -->
+  <a href="tel:01046879128" class="float-btn float-btn-tel">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.78a16 16 0 0 0 6 6l1.27-.95a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+    </svg>
+    직통<br>연결
+  </a>
+
+</div>
+
+</body>
+</html>

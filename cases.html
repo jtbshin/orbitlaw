@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>성공 사례 | 신한솔 변호사</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700&family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --burgundy: #4B0F0F;
+    --burgundy-dark: #2D0808;
+    --cream: #FAF5EE;
+    --cream-dark: #F0E8DC;
+    --gold: #C5A55A;
+    --text-dark: #1A0A0A;
+    --text-mid: #4A2A2A;
+    --text-light: #8A6A6A;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Noto Sans KR', sans-serif; background: var(--cream); color: var(--text-dark); }
+
+  /* NAV */
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(45, 8, 8, 0.97);
+    backdrop-filter: blur(8px);
+    padding: 0 40px; height: 64px;
+    display: flex; align-items: center; justify-content: space-between;
+    border-bottom: 1px solid rgba(197,165,90,0.3);
+  }
+  .nav-logo { font-family: 'Noto Serif KR', serif; font-size: 15px; color: var(--cream); text-decoration: none; }
+  .nav-logo span { color: var(--gold); font-size: 10px; display: block; letter-spacing: 0.1em; font-family: 'Noto Sans KR', sans-serif; font-weight: 300; }
+  .nav-back { font-size: 13px; color: rgba(250,245,238,0.6); text-decoration: none; letter-spacing: 0.05em; transition: color 0.2s; }
+  .nav-back:hover { color: var(--gold); }
+
+  /* HEADER */
+  .page-header {
+    background: var(--burgundy-dark);
+    padding: 80px 40px 60px;
+    text-align: center;
+  }
+  .page-label { font-size: 10px; letter-spacing: 0.3em; color: var(--gold); text-transform: uppercase; margin-bottom: 16px; }
+  .page-title { font-family: 'Noto Serif KR', serif; font-size: clamp(28px, 4vw, 44px); color: var(--cream); font-weight: 700; margin-bottom: 16px; }
+  .page-sub { font-size: 14px; color: rgba(250,245,238,0.5); font-weight: 300; letter-spacing: 0.05em; }
+
+  /* FILTER */
+  .filter-bar {
+    padding: 32px 40px;
+    display: flex; gap: 12px; flex-wrap: wrap;
+    max-width: 1100px; margin: 0 auto;
+    border-bottom: 1px solid var(--cream-dark);
+  }
+  .filter-btn {
+    background: none; border: 1px solid var(--cream-dark);
+    padding: 8px 20px; font-size: 12px; letter-spacing: 0.1em;
+    color: var(--text-light); cursor: pointer; font-family: 'Noto Sans KR', sans-serif;
+    transition: all 0.2s;
+  }
+  .filter-btn:hover, .filter-btn.active {
+    background: var(--burgundy); border-color: var(--burgundy);
+    color: var(--cream);
+  }
+
+  /* GRID */
+  .cases-grid {
+    max-width: 1100px; margin: 0 auto;
+    padding: 48px 40px 100px;
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+  }
+
+  .case-card {
+    background: white;
+    border-left: 3px solid var(--burgundy);
+    padding: 32px 28px;
+    text-decoration: none; color: inherit;
+    display: block;
+    transition: transform 0.2s, box-shadow 0.2s;
+    position: relative;
+  }
+  .case-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(75,15,15,0.12);
+  }
+  .case-tag {
+    font-size: 10px; letter-spacing: 0.2em;
+    color: var(--burgundy); font-weight: 700;
+    text-transform: uppercase; margin-bottom: 12px;
+  }
+  .case-title {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 17px; color: var(--text-dark);
+    font-weight: 700; margin-bottom: 12px; line-height: 1.5;
+  }
+  .case-desc {
+    font-size: 13px; color: var(--text-light);
+    line-height: 1.8; font-weight: 300; margin-bottom: 20px;
+  }
+  .case-result {
+    font-size: 12px; color: var(--burgundy);
+    font-weight: 700; letter-spacing: 0.05em;
+    padding-top: 16px; border-top: 1px solid var(--cream-dark);
+  }
+  .case-arrow {
+    position: absolute; bottom: 28px; right: 24px;
+    font-size: 18px; color: var(--cream-dark);
+    transition: color 0.2s, transform 0.2s;
+  }
+  .case-card:hover .case-arrow { color: var(--burgundy); transform: translateX(4px); }
+
+  /* EMPTY STATE */
+  .coming-soon {
+    grid-column: 1/-1; text-align: center;
+    padding: 60px 0; color: var(--text-light); font-size: 14px; font-weight: 300;
+  }
+
+  @media (max-width: 900px) { .cases-grid { grid-template-columns: repeat(2,1fr); } }
+  @media (max-width: 600px) {
+    nav { padding: 0 20px; }
+    .page-header { padding: 60px 24px 40px; }
+    .filter-bar { padding: 24px 20px; }
+    .cases-grid { grid-template-columns: 1fr; padding: 32px 20px 60px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">
+    신한솔 변호사
+    <span>SHIN HANSOL, ATTORNEY AT LAW</span>
+  </a>
+  <a href="index.html" class="nav-back">← 홈으로</a>
+</nav>
+
+<div class="page-header">
+  <p class="page-label">Case Results</p>
+  <h1 class="page-title">성공 사례</h1>
+  <p class="page-sub">실제 수행한 사건의 기록입니다. 의뢰인 보호를 위해 인적사항은 익명 처리됩니다.</p>
+</div>
+
+<div class="filter-bar">
+  <button class="filter-btn active" onclick="filterCases('all')">전체</button>
+  <button class="filter-btn" onclick="filterCases('형사')">형사</button>
+  <button class="filter-btn" onclick="filterCases('민사')">민사</button>
+  <button class="filter-btn" onclick="filterCases('조세')">조세</button>
+  <button class="filter-btn" onclick="filterCases('노동')">노동</button>
+  <button class="filter-btn" onclick="filterCases('행정')">행정</button>
+  <button class="filter-btn" onclick="filterCases('가사')">가사</button>
+</div>
+
+<div class="cases-grid" id="casesGrid">
+
+  <!-- 사례 추가 시 아래 블록을 복사해서 붙여넣으세요 -->
+  <!-- data-category에 분야 입력 (형사/민사/조세/노동/행정/가사) -->
+
+  <a href="case-001.html" class="case-card" data-category="형사">
+    <p class="case-tag">형사 · 상해</p>
+    <h2 class="case-title">CCTV 없는 10주 상해<br>반대신문으로 진술 붕괴 — 무죄</h2>
+    <p class="case-desc">수사 기록이 완벽해 보이는 상황에서 피해자 진술의 경험칙 위반을 집요하게 추궁, 재판부가 직접 피해자를 신문하는 국면을 유도하여 무죄 확정.</p>
+    <p class="case-result">→ 무죄</p>
+    <span class="case-arrow">→</span>
+  </a>
+
+  <a href="case-002.html" class="case-card" data-category="민사">
+    <p class="case-tag">민사 · 사해행위취소</p>
+    <h2 class="case-title">선행 사건 패소 이후<br>제척기간 도과 소 각하</h2>
+    <p class="case-desc">실체 다툼이 불리한 구조에서 시간 축을 해부. 통화 녹음 분석으로 제척기간 도과를 입증하여 본안 판단 없이 전원 승소.</p>
+    <p class="case-result">→ 소 각하 (피고 완전 승소)</p>
+    <span class="case-arrow">→</span>
+  </a>
+
+  <a href="case-003.html" class="case-card" data-category="민사">
+    <p class="case-tag">민사 · 가처분</p>
+    <h2 class="case-title">동업자 영업금지가처분<br>전부 기각</h2>
+    <p class="case-desc">가맹계약서를 근거로 한 동업자의 영업금지가처분 신청을 가맹계약 실질 부재, 영업비밀 해당성 부정, 보전 필요성 불인정으로 전부 방어.</p>
+    <p class="case-result">→ 신청 전부 기각</p>
+    <span class="case-arrow">→</span>
+  </a>
+
+  <a href="case-004.html" class="case-card" data-category="민사">
+    <p class="case-tag">민사 · 처분문서</p>
+    <h2 class="case-title">본인 날인 차용증 10억<br>1심 패소 — 항소심 전부 승소</h2>
+    <p class="case-desc">처분문서 내부 경제적 모순 해부 및 원고 주장을 역이용한 상사소멸시효 법리로 1심 판결 취소. 대법원 최종 확정.</p>
+    <p class="case-result">→ 항소심 전부 승소 · 대법원 확정</p>
+    <span class="case-arrow">→</span>
+  </a>
+
+</div>
+
+<script>
+function filterCases(category) {
+  document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+  event.target.classList.add('active');
+
+  document.querySelectorAll('.case-card').forEach(card => {
+    if (category === 'all' || card.dataset.category === category) {
+      card.style.display = 'block';
+    } else {
+      card.style.display = 'none';
+    }
+  });
+}
+</script>
+</body>
+</html>
