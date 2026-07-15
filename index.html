@@ -2111,12 +2111,30 @@ document.querySelectorAll('.expertise-card').forEach(card => {
         sendPayload(token);
       },
 
-      'error-callback': function() {
+      'error-callback': function(errorCode) {
+        console.error('Turnstile client error:', errorCode);
         isSubmitting = false;
         submitBtn.disabled = false;
         submitBtn.textContent = '사전진단 접수하기';
         status.textContent =
-          '자동 접수 방지 확인에 실패했습니다. 잠시 후 다시 시도해 주십시오.';
+          '자동 접수 방지 확인에 실패했습니다. 오류코드: ' +
+          String(errorCode || '알 수 없음');
+      },
+
+      'timeout-callback': function() {
+        isSubmitting = false;
+        submitBtn.disabled = false;
+        submitBtn.textContent = '사전진단 접수하기';
+        status.textContent =
+          '자동 접수 방지 확인 시간이 초과되었습니다. 다시 눌러 주십시오.';
+      },
+
+      'unsupported-callback': function() {
+        isSubmitting = false;
+        submitBtn.disabled = false;
+        submitBtn.textContent = '사전진단 접수하기';
+        status.textContent =
+          '현재 브라우저에서는 자동 접수 방지 기능을 사용할 수 없습니다.';
       },
 
       'expired-callback': function() {
@@ -2316,7 +2334,7 @@ document.querySelectorAll('.expertise-card').forEach(card => {
     submitBtn.disabled = true;
     submitBtn.textContent = '보안 확인 중…';
 
-    window.turnstile.execute(turnstileWidgetId);
+    window.turnstile.execute('#consultTurnstile');
   });
 
   document.querySelectorAll('a[href^="tel:"]').forEach(link => {
