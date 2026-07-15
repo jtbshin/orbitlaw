@@ -968,7 +968,423 @@
     .float-btn { padding: 12px 6px; font-size: 9px; }
   }
 
+  /* ── INTERNAL CONSULTATION FORM ── */
+  body.consult-modal-open { overflow: hidden; }
+  [data-consult-open] { cursor: pointer; }
+
+  .consult-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 500;
+    background: rgba(20, 5, 5, 0.82);
+    backdrop-filter: blur(6px);
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+  }
+
+  .consult-overlay.active { display: flex; }
+
+  .consult-dialog {
+    width: min(760px, 100%);
+    max-height: calc(100vh - 48px);
+    max-height: calc(100dvh - 48px);
+    overflow-y: auto;
+    background: var(--cream);
+    border-top: 4px solid var(--gold);
+    box-shadow: 0 24px 80px rgba(0,0,0,0.38);
+    position: relative;
+    overscroll-behavior: contain;
+  }
+
+  .consult-header {
+    padding: 32px 38px 22px;
+    border-bottom: 1px solid var(--cream-dark);
+    position: relative;
+  }
+
+  .consult-kicker {
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    color: var(--gold);
+    font-weight: 700;
+    margin-bottom: 9px;
+    text-transform: uppercase;
+  }
+
+  .consult-title {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 27px;
+    color: var(--burgundy);
+    line-height: 1.35;
+    margin-bottom: 10px;
+  }
+
+  .consult-intro {
+    font-size: 14px;
+    color: var(--text-mid);
+    line-height: 1.75;
+    word-break: keep-all;
+  }
+
+  .consult-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 16px;
+    margin-top: 13px;
+    font-size: 12px;
+    color: var(--text-light);
+  }
+
+  .consult-close {
+    position: absolute;
+    top: 20px;
+    right: 22px;
+    width: 36px;
+    height: 36px;
+    border: none;
+    background: transparent;
+    color: var(--text-light);
+    font-size: 27px;
+    line-height: 1;
+    cursor: pointer;
+  }
+
+  .consult-emergency {
+    margin: 0 38px;
+    padding: 14px 16px;
+    background: #f4e7dc;
+    border-left: 3px solid var(--burgundy);
+    font-size: 13px;
+    line-height: 1.65;
+    color: var(--text-mid);
+    word-break: keep-all;
+  }
+
+  .consult-form { padding: 26px 38px 36px; }
+
+  .consult-fieldset {
+    border: 0;
+    margin: 0 0 30px;
+    padding: 0;
+  }
+
+  .consult-legend,
+  .consult-label {
+    display: block;
+    font-size: 16px;
+    line-height: 1.5;
+    color: var(--text-dark);
+    font-weight: 700;
+    margin-bottom: 12px;
+    word-break: keep-all;
+  }
+
+  .consult-required {
+    color: var(--burgundy);
+    margin-left: 3px;
+  }
+
+  .consult-help {
+    font-size: 12px;
+    line-height: 1.7;
+    color: var(--text-light);
+    margin: -4px 0 12px;
+    word-break: keep-all;
+  }
+
+  .consult-options {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 9px;
+  }
+
+  .consult-option {
+    position: relative;
+    display: block;
+  }
+
+  .consult-option input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .consult-option span {
+    display: flex;
+    align-items: center;
+    min-height: 52px;
+    padding: 12px 14px;
+    border: 1px solid #dfd2c4;
+    background: rgba(255,255,255,0.48);
+    color: var(--text-mid);
+    font-size: 13px;
+    line-height: 1.55;
+    cursor: pointer;
+    transition: border-color .18s, background .18s, color .18s;
+    word-break: keep-all;
+  }
+
+  .consult-option input:checked + span {
+    border-color: var(--burgundy);
+    background: #fff;
+    color: var(--burgundy);
+    box-shadow: inset 3px 0 0 var(--gold);
+    font-weight: 600;
+  }
+
+  .consult-option input:focus-visible + span,
+  .consult-contact-option input:focus-visible + span {
+    outline: 2px solid var(--gold);
+    outline-offset: 2px;
+  }
+
+  .consult-conditional {
+    display: none;
+    margin-top: 12px;
+  }
+
+  .consult-conditional.visible { display: block; }
+
+  .consult-input,
+  .consult-textarea {
+    width: 100%;
+    border: 1px solid #d8c9ba;
+    background: #fff;
+    padding: 13px 14px;
+    color: var(--text-dark);
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 14px;
+    border-radius: 0;
+    outline: none;
+    transition: border-color .18s, box-shadow .18s;
+  }
+
+  .consult-input:focus,
+  .consult-textarea:focus {
+    border-color: var(--burgundy);
+    box-shadow: 0 0 0 3px rgba(75,15,15,.08);
+  }
+
+  .consult-textarea {
+    min-height: 190px;
+    resize: vertical;
+    line-height: 1.75;
+  }
+
+  .consult-counter {
+    text-align: right;
+    margin-top: 7px;
+    font-size: 11px;
+    color: var(--text-light);
+  }
+
+  .consult-contact-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .consult-contact-option {
+    position: relative;
+  }
+
+  .consult-contact-option input {
+    position: absolute;
+    opacity: 0;
+  }
+
+  .consult-contact-option span {
+    display: inline-block;
+    border: 1px solid #d8c9ba;
+    padding: 10px 15px;
+    font-size: 13px;
+    color: var(--text-mid);
+    background: #fff;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+
+  .consult-contact-option input:checked + span {
+    border-color: var(--burgundy);
+    color: var(--burgundy);
+    background: #f8f0e8;
+    font-weight: 700;
+  }
+
+  .consult-contact-detail {
+    display: none;
+    margin-top: 16px;
+  }
+
+  .consult-contact-detail.visible { display: block; }
+
+  .consult-consent {
+    border-top: 1px solid var(--cream-dark);
+    padding-top: 21px;
+    margin-top: 4px;
+  }
+
+  .consult-check {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 13px;
+    line-height: 1.65;
+    color: var(--text-mid);
+    cursor: pointer;
+    word-break: keep-all;
+  }
+
+  .consult-check input {
+    margin-top: 4px;
+    accent-color: var(--burgundy);
+  }
+
+  .consult-privacy-details {
+    margin: 10px 0 0 26px;
+    font-size: 11px;
+    color: var(--text-light);
+    line-height: 1.75;
+  }
+
+  .consult-privacy-details summary {
+    cursor: pointer;
+    color: var(--burgundy);
+  }
+
+  .consult-caution {
+    margin-top: 13px;
+    padding: 12px 14px;
+    background: var(--cream-dark);
+    font-size: 11px;
+    color: var(--text-light);
+    line-height: 1.65;
+    word-break: keep-all;
+  }
+
+  .consult-honeypot {
+    position: absolute !important;
+    left: -10000px !important;
+    width: 1px !important;
+    height: 1px !important;
+    overflow: hidden !important;
+  }
+
+  .consult-turnstile {
+    min-height: 1px;
+    margin-top: 18px;
+  }
+
+  .consult-submit-wrap { margin-top: 20px; }
+
+  .consult-submit {
+    width: 100%;
+    border: 0;
+    background: var(--burgundy);
+    color: var(--cream);
+    padding: 17px 22px;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: .06em;
+    cursor: pointer;
+    transition: background .18s;
+  }
+
+  .consult-submit:hover { background: var(--burgundy-light); }
+  .consult-submit:disabled { opacity: .55; cursor: not-allowed; }
+
+  .consult-status {
+    min-height: 22px;
+    margin-top: 12px;
+    font-size: 12px;
+    line-height: 1.65;
+    color: var(--burgundy);
+    text-align: center;
+    word-break: keep-all;
+  }
+
+  .consult-success {
+    display: none;
+    padding: 54px 38px 60px;
+    text-align: center;
+  }
+
+  .consult-success.visible { display: block; }
+  .consult-form.hidden { display: none; }
+
+  .consult-success-mark {
+    width: 54px;
+    height: 54px;
+    border: 2px solid var(--gold);
+    border-radius: 50%;
+    margin: 0 auto 18px;
+    display: grid;
+    place-items: center;
+    color: var(--burgundy);
+    font-size: 23px;
+  }
+
+  .consult-success h3 {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 24px;
+    color: var(--burgundy);
+    margin-bottom: 13px;
+  }
+
+  .consult-success p {
+    font-size: 14px;
+    line-height: 1.8;
+    color: var(--text-mid);
+    word-break: keep-all;
+  }
+
+  .consult-receipt {
+    margin-top: 13px;
+    font-size: 12px !important;
+    color: var(--text-light) !important;
+  }
+
+  @media (max-width: 768px) {
+    .consult-overlay {
+      padding: 0;
+      align-items: stretch;
+    }
+
+    .consult-dialog {
+      width: 100%;
+      max-height: 100vh;
+      max-height: 100dvh;
+      height: 100vh;
+      height: 100dvh;
+      border-top-width: 3px;
+    }
+
+    .consult-header { padding: 25px 20px 18px; }
+    .consult-title { font-size: 23px; padding-right: 34px; }
+    .consult-intro { font-size: 13px; }
+    .consult-close { top: 14px; right: 12px; }
+    .consult-emergency { margin: 0 20px; }
+    .consult-form { padding: 23px 20px 38px; }
+    .consult-options { grid-template-columns: 1fr; }
+    .consult-option span { min-height: auto; }
+    .consult-textarea { min-height: 170px; }
+    .consult-success { padding: 48px 22px; }
+    .consult-contact-options { gap: 7px; }
+    .consult-contact-option span {
+      padding: 9px 12px;
+      font-size: 12px;
+      white-space: nowrap;
+    }
+  }
+
 </style>
+
+<!-- Cloudflare Turnstile -->
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit" defer></script>
+
 </head>
 <body>
 
@@ -983,7 +1399,7 @@
     <li><a href="#expertise">전문 분야</a></li>
     <li><a href="#cases">성공 사례</a></li>
     <li><a href="#insight">월간 궤도</a></li>
-    <li><a href="#contact" class="nav-cta">1:1 진단</a></li>
+    <li><a href="#contact" class="nav-cta" data-consult-open data-consult-source="상단 메뉴">1:1 진단</a></li>
   </ul>
   <!-- 햄버거 버튼 (모바일) -->
   <button class="nav-hamburger" id="hamburger" onclick="toggleMenu()">
@@ -997,7 +1413,7 @@
   <a href="#expertise" onclick="closeMenu()">전문 분야</a>
   <a href="#cases" onclick="closeMenu()">성공 사례</a>
   <a href="#insight" onclick="closeMenu()">월간 궤도</a>
-  <a href="#contact" onclick="closeMenu()" class="mobile-cta">1:1 진단 신청</a>
+  <a href="#contact" onclick="closeMenu()" class="mobile-cta" data-consult-open data-consult-source="모바일 메뉴">1:1 진단 신청</a>
 </div>
 
 <!-- HERO -->
@@ -1013,7 +1429,7 @@
       형사·민사·기업·조세. 대구 법조타운에서 직접 수행합니다.
     </p>
     <div class="hero-divider"></div>
-    <a href="#contact" class="hero-btn">1:1 사전 진단 신청</a>
+    <a href="#contact" class="hero-btn" data-consult-open data-consult-source="첫 화면">1:1 사전 진단 신청</a>
   </div>
 </section>
 
@@ -1066,7 +1482,7 @@
             <li class="career-hidden">대구시체육회 스포츠공정위원회 위원</li>
             <li class="career-hidden">대구시체육회 선거운영위원회 위원</li>
             <li class="career-hidden">대구축구협회 스포츠공정위원회 위원</li>
-            <li class="career-hidden">대구동부중학교 학교운영위원회 지역위원</li>
+            <li class="career-hidden">대구동원중학교 학교운영위원회 지역위원</li>
             <li class="career-hidden">대구동부경찰서 수사민원상담변호사</li>
             <li class="career-hidden">근로복지공단 송무유공표창</li>
             <li class="career-hidden">KAIST 신경과학-인공지능 융합연구센터 연구협력변호사</li>
@@ -1223,7 +1639,7 @@
     신한솔 변호사가 직통으로 소통합니다.
   </p>
   <div class="contact-btn-wrap">
-    <a href="https://forms.gle/Mvb7VUjhDTFdU18s7" target="_blank" class="contact-btn">
+    <a href="#contact" class="contact-btn" data-consult-open data-consult-source="하단 상담 영역">
       1:1 사전 진단 신청하기
     </a>
     <a href="tel:01046879128" class="contact-btn-tel">
@@ -1232,6 +1648,208 @@
   </div>
   <p class="contact-notice">사건 개요를 미리 작성해 주시면 신한솔 변호사가 직접 검토 후 연락드립니다.</p>
 </section>
+
+
+<!-- INTERNAL CONSULTATION MODAL -->
+<div class="consult-overlay" id="consultOverlay" aria-hidden="true">
+  <section class="consult-dialog" role="dialog" aria-modal="true" aria-labelledby="consultTitle">
+    <header class="consult-header">
+      <p class="consult-kicker">Private Consultation</p>
+      <h2 class="consult-title" id="consultTitle">1:1 사건 사전진단</h2>
+      <p class="consult-intro">
+        사건 개요를 남겨 주시면 신한솔 변호사가 직접 확인한 뒤 연락드립니다.
+        정확한 법률용어를 쓰지 않아도 됩니다.
+      </p>
+      <div class="consult-meta">
+        <span>예상 작성시간 2~3분</span>
+        <span>다른 방문자에게 공개되지 않습니다</span>
+      </div>
+      <button type="button" class="consult-close" id="consultClose" aria-label="상담창 닫기">×</button>
+    </header>
+
+    <p class="consult-emergency">
+      체포·구속, 당일 조사, 임박한 재판 등 긴급한 사건은
+      <a href="tel:01046879128" style="color:var(--burgundy);font-weight:700;">직통전화 010-4687-9128</a>로 연락해 주십시오.
+    </p>
+
+    <form class="consult-form" id="consultForm" novalidate>
+      <input type="hidden" name="source_page" id="consultSourcePage">
+      <input type="hidden" name="source_button" id="consultSourceButton">
+      <input type="hidden" name="form_started_at" id="consultStartedAt">
+
+      <div class="consult-honeypot" aria-hidden="true">
+        <label for="consultWebsite">웹사이트</label>
+        <input type="text" id="consultWebsite" name="website" tabindex="-1" autocomplete="off">
+      </div>
+
+      <fieldset class="consult-fieldset">
+        <legend class="consult-legend">
+          현재 어떤 문제로 문의하십니까?<span class="consult-required">*</span>
+        </legend>
+        <div class="consult-options">
+          <label class="consult-option">
+            <input type="radio" name="situation" value="수사 중 또는 조사 예정" required>
+            <span>경찰·검찰 조사를 앞두고 있거나 수사 중입니다.</span>
+          </label>
+          <label class="consult-option">
+            <input type="radio" name="situation" value="법원 서류 수령">
+            <span>법원으로부터 소장·공소장·소환장 등을 받았습니다.</span>
+          </label>
+          <label class="consult-option">
+            <input type="radio" name="situation" value="고소·소송·채권회수">
+            <span>타인을 고소하거나 소송으로 돈을 받아야 합니다.</span>
+          </label>
+          <label class="consult-option">
+            <input type="radio" name="situation" value="이혼·상속·가족 문제">
+            <span>이혼·상속 등 가족 간의 재산·신분 문제입니다.</span>
+          </label>
+          <label class="consult-option">
+            <input type="radio" name="situation" value="회사·노동·행정">
+            <span>회사·근로관계 또는 행정기관 관련 문제입니다.</span>
+          </label>
+          <label class="consult-option">
+            <input type="radio" name="situation" value="기타·잘 모르겠음">
+            <span>기타 또는 어느 항목인지 잘 모르겠습니다.</span>
+          </label>
+        </div>
+      </fieldset>
+
+      <fieldset class="consult-fieldset">
+        <legend class="consult-legend">
+          사안이 얼마나 급합니까?<span class="consult-required">*</span>
+        </legend>
+        <div class="consult-options">
+          <label class="consult-option">
+            <input type="radio" name="urgency" value="매우 급함" required>
+            <span>매우 급합니다. 1주일 안에 조사·재판·답변기한 등이 있습니다.</span>
+          </label>
+          <label class="consult-option">
+            <input type="radio" name="urgency" value="보통">
+            <span>당장 기한이 임박하지는 않았으나 정확한 검토가 필요합니다.</span>
+          </label>
+        </div>
+
+        <div class="consult-conditional" id="urgentDetailWrap">
+          <label class="consult-label" for="urgent_detail" style="font-size:13px;margin-top:12px;">
+            가장 가까운 일정이나 기한이 있다면 적어 주십시오.
+            <span style="font-weight:400;color:var(--text-light);">선택</span>
+          </label>
+          <input class="consult-input" type="text" id="urgent_detail" name="urgent_detail"
+                 maxlength="120" placeholder="예: 7월 22일 경찰 조사 / 7월 25일 답변서 제출기한">
+        </div>
+      </fieldset>
+
+      <div class="consult-fieldset">
+        <label class="consult-label" for="case_summary">
+          사건 개요를 적어 주십시오.<span class="consult-required">*</span>
+        </label>
+        <p class="consult-help">
+          누가, 언제, 무엇을, 어떻게 했는지를 중심으로 친구에게 이야기하듯 시간 순서대로 적어 주십시오.
+          500자 안팎이면 충분하며, 정확한 법률용어를 사용하지 않아도 됩니다.
+        </p>
+        <textarea class="consult-textarea" id="case_summary" name="case_summary" maxlength="1500" required
+          placeholder="예: 어머니가 돌아가신 뒤 유언공증이 있다는 사실을 알게 되었고, 형제들이 재산을 전부 가져가려 합니다. 제가 받을 수 있는 몫이 있는지 궁금합니다."></textarea>
+        <p class="consult-counter"><span id="summaryCount">0</span> / 1,500</p>
+      </div>
+
+      <div class="consult-fieldset">
+        <label class="consult-label" for="client_name">
+          성함 또는 호칭<span class="consult-required">*</span>
+        </label>
+        <input class="consult-input" type="text" id="client_name" name="client_name"
+               autocomplete="name" maxlength="40" placeholder="예: 김○○" required>
+      </div>
+
+      <fieldset class="consult-fieldset">
+        <legend class="consult-legend">
+          어떤 방식으로 연락드리는 것이 편합니까?<span class="consult-required">*</span>
+        </legend>
+
+        <div class="consult-contact-options">
+          <label class="consult-contact-option">
+            <input type="radio" name="contact_preference" value="문자 먼저" required>
+            <span>문자 먼저</span>
+          </label>
+          <label class="consult-contact-option">
+            <input type="radio" name="contact_preference" value="전화 가능">
+            <span>전화 가능</span>
+          </label>
+          <label class="consult-contact-option">
+            <input type="radio" name="contact_preference" value="이메일 회신">
+            <span>이메일 회신</span>
+          </label>
+        </div>
+
+        <div class="consult-contact-detail" id="phoneContactWrap">
+          <label class="consult-label" for="client_phone" style="font-size:14px;">
+            휴대전화 번호<span class="consult-required">*</span>
+          </label>
+          <input class="consult-input" type="tel" id="client_phone" name="client_phone"
+                 autocomplete="tel" inputmode="tel" maxlength="20" placeholder="010-0000-0000">
+
+          <label class="consult-help" for="contact_detail" style="margin:13px 0 6px;">
+            연락하기 편한 시간이 있다면 적어 주십시오. 선택
+          </label>
+          <input class="consult-input" type="text" id="contact_detail" name="contact_detail"
+                 maxlength="120" placeholder="예: 평일 오후 5시 이후 / 아무 때나 가능">
+        </div>
+
+        <div class="consult-contact-detail" id="emailContactWrap">
+          <label class="consult-label" for="client_email" style="font-size:14px;">
+            이메일 주소<span class="consult-required">*</span>
+          </label>
+          <input class="consult-input" type="email" id="client_email" name="client_email"
+                 autocomplete="email" maxlength="120" placeholder="name@example.com">
+          <p class="consult-help" style="margin-top:8px;">
+            조사·재판 등 기한이 임박한 사건은 전화 또는 문자 연락을 권합니다.
+          </p>
+        </div>
+      </fieldset>
+
+      <div class="consult-consent">
+        <label class="consult-check">
+          <input type="checkbox" name="privacy_consent" id="privacyConsent" value="동의" required>
+          <span>
+            상담 가능 여부 확인과 연락을 위해 입력한 개인정보를 수집·이용하는 데 동의합니다.
+            <span class="consult-required">*</span>
+          </span>
+        </label>
+
+        <details class="consult-privacy-details">
+          <summary>개인정보 수집·이용 안내 보기</summary>
+          <div style="margin-top:8px;">
+            수집 항목: 성함 또는 호칭, 연락처, 상담 내용, 선택 입력정보<br>
+            이용 목적: 상담 검토 및 연락<br>
+            보유 기간: 상담 종료 후 3개월 이내 파기. 사건 수임 시 위임계약 및 내부 방침에 따름.<br>
+            동의를 거부할 수 있으나, 거부할 경우 상담 접수가 어렵습니다.
+          </div>
+        </details>
+
+        <p class="consult-caution">
+          주민등록번호, 계좌 비밀번호, 신분증 정보 등 불필요한 민감정보는 입력하지 마십시오.
+          사건기록과 증거자료는 상담 후 필요한 경우 별도로 요청합니다.
+        </p>
+      </div>
+
+      <div id="consultTurnstile" class="consult-turnstile" aria-label="자동 접수 방지 확인"></div>
+
+      <div class="consult-submit-wrap">
+        <button class="consult-submit" id="consultSubmit" type="submit">사전진단 접수하기</button>
+        <p class="consult-status" id="consultStatus" aria-live="polite"></p>
+      </div>
+    </form>
+
+    <div class="consult-success" id="consultSuccess">
+      <div class="consult-success-mark">✓</div>
+      <h3>사전진단이 접수되었습니다.</h3>
+      <p>
+        신한솔 변호사가 내용을 직접 확인한 뒤<br>
+        선택하신 방식으로 연락드리겠습니다.
+      </p>
+      <p class="consult-receipt" id="consultReceipt"></p>
+    </div>
+  </section>
+</div>
 
 <!-- FOOTER -->
 <footer>
@@ -1340,7 +1958,7 @@ document.querySelectorAll('.expertise-card').forEach(card => {
 <div class="float-cta">
 
   <!-- 1:1 사전진단 -->
-  <a href="https://forms.gle/Mvb7VUjhDTFdU18s7" target="_blank" class="float-btn float-btn-form">
+  <a href="#contact" class="float-btn float-btn-form" data-consult-open data-consult-source="플로팅 버튼">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
       <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
       <polyline points="14 2 14 8 20 8"/>
@@ -1367,6 +1985,355 @@ document.querySelectorAll('.expertise-card').forEach(card => {
   </a>
 
 </div>
+
+
+<script>
+(function () {
+  const INTAKE_ENDPOINT = 'https://orbitlaw-intake.eknc1004.workers.dev/';
+  const TURNSTILE_SITE_KEY = '0x4AAAAAAD2Nqki_FGRZUplL';
+
+  const overlay = document.getElementById('consultOverlay');
+  const dialog = overlay.querySelector('.consult-dialog');
+  const closeBtn = document.getElementById('consultClose');
+  const form = document.getElementById('consultForm');
+  const success = document.getElementById('consultSuccess');
+  const status = document.getElementById('consultStatus');
+  const submitBtn = document.getElementById('consultSubmit');
+  const summary = document.getElementById('case_summary');
+  const summaryCount = document.getElementById('summaryCount');
+  const urgentWrap = document.getElementById('urgentDetailWrap');
+  const sourcePage = document.getElementById('consultSourcePage');
+  const sourceButton = document.getElementById('consultSourceButton');
+  const startedAt = document.getElementById('consultStartedAt');
+  const phoneWrap = document.getElementById('phoneContactWrap');
+  const emailWrap = document.getElementById('emailContactWrap');
+  const phoneInput = document.getElementById('client_phone');
+  const emailInput = document.getElementById('client_email');
+  const receipt = document.getElementById('consultReceipt');
+  const contactDetail = document.getElementById('contact_detail');
+
+  let lastFocused = null;
+  let turnstileWidgetId = null;
+  let pendingPayload = null;
+  let isSubmitting = false;
+
+  function trackEvent(name, params) {
+    if (typeof window.gtag === 'function') {
+      window.gtag('event', name, params || {});
+    }
+  }
+
+  function campaignParams() {
+    const params = new URLSearchParams(window.location.search);
+    return {
+      utm_source: params.get('utm_source') || '',
+      utm_medium: params.get('utm_medium') || '',
+      utm_campaign: params.get('utm_campaign') || ''
+    };
+  }
+
+  function openConsultation(source) {
+    if (success.classList.contains('visible')) resetConsultation();
+
+    lastFocused = document.activeElement;
+    sourcePage.value = window.location.pathname + window.location.search;
+    sourceButton.value = source || '알 수 없음';
+    startedAt.value = String(Date.now());
+
+    overlay.classList.add('active');
+    overlay.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('consult-modal-open');
+
+    ensureTurnstileRendered();
+    trackEvent('consult_open', { source_button: sourceButton.value });
+
+    setTimeout(() => closeBtn.focus(), 0);
+  }
+
+  function closeConsultation() {
+    const hasDraft = [...form.elements].some(el => {
+      if (!el.name || el.type === 'hidden' || el.name === 'website') return false;
+      if (el.type === 'radio' || el.type === 'checkbox') return el.checked;
+      return String(el.value || '').trim().length > 0;
+    });
+
+    if (hasDraft && !success.classList.contains('visible')) {
+      if (!window.confirm('작성 중인 내용이 있습니다. 상담창을 닫으시겠습니까?')) return;
+    }
+
+    overlay.classList.remove('active');
+    overlay.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('consult-modal-open');
+
+    if (lastFocused) lastFocused.focus();
+  }
+
+  function resetConsultation() {
+    form.reset();
+    form.classList.remove('hidden');
+    success.classList.remove('visible');
+    summaryCount.textContent = '0';
+    urgentWrap.classList.remove('visible');
+    phoneWrap.classList.remove('visible');
+    emailWrap.classList.remove('visible');
+    phoneInput.required = false;
+    emailInput.required = false;
+    status.textContent = '';
+    receipt.textContent = '';
+    isSubmitting = false;
+    pendingPayload = null;
+    submitBtn.disabled = false;
+    submitBtn.textContent = '사전진단 접수하기';
+
+    if (window.turnstile && turnstileWidgetId !== null) {
+      window.turnstile.reset(turnstileWidgetId);
+    }
+  }
+
+  function ensureTurnstileRendered() {
+    if (turnstileWidgetId !== null) return;
+
+    if (!window.turnstile) {
+      setTimeout(ensureTurnstileRendered, 150);
+      return;
+    }
+
+    turnstileWidgetId = window.turnstile.render('#consultTurnstile', {
+      sitekey: TURNSTILE_SITE_KEY,
+      size: 'flexible',
+      theme: 'light',
+      language: 'ko',
+      appearance: 'interaction-only',
+      execution: 'execute',
+      action: 'consultation',
+
+      callback: function(token) {
+        sendPayload(token);
+      },
+
+      'error-callback': function() {
+        isSubmitting = false;
+        submitBtn.disabled = false;
+        submitBtn.textContent = '사전진단 접수하기';
+        status.textContent =
+          '자동 접수 방지 확인에 실패했습니다. 잠시 후 다시 시도해 주십시오.';
+      },
+
+      'expired-callback': function() {
+        if (isSubmitting) {
+          isSubmitting = false;
+          submitBtn.disabled = false;
+          submitBtn.textContent = '사전진단 접수하기';
+          status.textContent =
+            '보안 확인 시간이 만료되었습니다. 다시 접수해 주십시오.';
+        }
+      }
+    });
+  }
+
+  function updateContactFields() {
+    const selected =
+      form.querySelector('input[name="contact_preference"]:checked');
+
+    const value = selected ? selected.value : '';
+    const emailMode = value === '이메일 회신';
+    const phoneMode = value === '문자 먼저' || value === '전화 가능';
+
+    emailWrap.classList.toggle('visible', emailMode);
+    phoneWrap.classList.toggle('visible', phoneMode);
+    emailInput.required = emailMode;
+    phoneInput.required = phoneMode;
+
+    if (!emailMode) emailInput.value = '';
+    if (!phoneMode) {
+      phoneInput.value = '';
+      contactDetail.value = '';
+    }
+  }
+
+  function buildPayload() {
+    const selected =
+      form.querySelector('input[name="contact_preference"]:checked');
+
+    return {
+      situation:
+        form.querySelector('input[name="situation"]:checked').value,
+      urgency:
+        form.querySelector('input[name="urgency"]:checked').value,
+      urgent_detail:
+        document.getElementById('urgent_detail').value.trim(),
+      case_summary: summary.value.trim(),
+      client_name:
+        document.getElementById('client_name').value.trim(),
+      contact_preference: selected.value,
+      client_phone: phoneInput.value.trim(),
+      client_email: emailInput.value.trim(),
+      contact_detail: contactDetail.value.trim(),
+      privacy_consent:
+        document.getElementById('privacyConsent').checked,
+      source_page: sourcePage.value,
+      source_button: sourceButton.value,
+      referrer: document.referrer || '',
+      form_started_at: Number(startedAt.value),
+      website: document.getElementById('consultWebsite').value,
+      ...campaignParams()
+    };
+  }
+
+  async function sendPayload(token) {
+    if (!pendingPayload || !isSubmitting) return;
+
+    pendingPayload.turnstile_token = token;
+
+    try {
+      const response = await fetch(INTAKE_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(pendingPayload)
+      });
+
+      const result = await response.json().catch(() => null);
+
+      if (!response.ok || !result || !result.ok) {
+        throw new Error(result && result.error
+          ? result.error
+          : 'SUBMIT_FAILED');
+      }
+
+      trackEvent('consult_submit', {
+        source_button: sourceButton.value,
+        situation: pendingPayload.situation,
+        contact_preference: pendingPayload.contact_preference
+      });
+
+      form.classList.add('hidden');
+      success.classList.add('visible');
+      receipt.textContent = result.receipt_id
+        ? '접수번호 ' + result.receipt_id
+        : '';
+
+      dialog.scrollTo({ top: 0, behavior: 'smooth' });
+    } catch (error) {
+      console.error('Consultation submit failed:', error);
+
+      status.textContent =
+        '접수 중 오류가 발생했습니다. 잠시 후 다시 시도하거나 직통전화로 연락해 주십시오.';
+
+      trackEvent('consult_submit_error', {
+        error_code: String(error.message || error)
+      });
+
+      if (window.turnstile && turnstileWidgetId !== null) {
+        window.turnstile.reset(turnstileWidgetId);
+      }
+    } finally {
+      isSubmitting = false;
+      pendingPayload = null;
+      submitBtn.disabled = false;
+      submitBtn.textContent = '사전진단 접수하기';
+    }
+  }
+
+  document.querySelectorAll('[data-consult-open]').forEach(trigger => {
+    trigger.addEventListener('click', function(event) {
+      event.preventDefault();
+      openConsultation(
+        this.dataset.consultSource || this.textContent.trim()
+      );
+    });
+  });
+
+  closeBtn.addEventListener('click', closeConsultation);
+
+  overlay.addEventListener('mousedown', event => {
+    if (event.target === overlay) closeConsultation();
+  });
+
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape' &&
+        overlay.classList.contains('active')) {
+      closeConsultation();
+    }
+  });
+
+  summary.addEventListener('input', () => {
+    summaryCount.textContent =
+      summary.value.length.toLocaleString('ko-KR');
+  });
+
+  document.querySelectorAll('input[name="urgency"]').forEach(input => {
+    input.addEventListener('change', () => {
+      urgentWrap.classList.toggle(
+        'visible',
+        input.value === '매우 급함' && input.checked
+      );
+    });
+  });
+
+  document.querySelectorAll(
+    'input[name="contact_preference"]'
+  ).forEach(input => {
+    input.addEventListener('change', updateContactFields);
+  });
+
+  phoneInput.addEventListener('input', function() {
+    const digits = this.value.replace(/\D/g, '').slice(0, 11);
+
+    if (digits.length <= 3) {
+      this.value = digits;
+    } else if (digits.length <= 7) {
+      this.value =
+        digits.slice(0, 3) + '-' + digits.slice(3);
+    } else {
+      this.value =
+        digits.slice(0, 3) + '-' +
+        digits.slice(3, 7) + '-' +
+        digits.slice(7);
+    }
+  });
+
+  form.addEventListener('submit', function(event) {
+    event.preventDefault();
+    status.textContent = '';
+    updateContactFields();
+
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      status.textContent = '필수 항목을 확인해 주십시오.';
+      return;
+    }
+
+    ensureTurnstileRendered();
+
+    if (!window.turnstile || turnstileWidgetId === null) {
+      status.textContent =
+        '보안 확인 기능을 불러오는 중입니다. 잠시 후 다시 눌러 주십시오.';
+      return;
+    }
+
+    isSubmitting = true;
+    pendingPayload = buildPayload();
+    submitBtn.disabled = true;
+    submitBtn.textContent = '보안 확인 중…';
+
+    window.turnstile.execute(turnstileWidgetId);
+  });
+
+  document.querySelectorAll('a[href^="tel:"]').forEach(link => {
+    link.addEventListener('click', () => {
+      trackEvent('tel_click');
+    });
+  });
+
+  document.querySelectorAll(
+    'a[href*="open.kakao.com"]'
+  ).forEach(link => {
+    link.addEventListener('click', () => {
+      trackEvent('kakao_click');
+    });
+  });
+})();
+</script>
 
 </body>
 </html>
