@@ -2213,9 +2213,35 @@ document.querySelectorAll('.expertise-card').forEach(card => {
       const result = await response.json().catch(() => null);
 
       if (!response.ok || !result || !result.ok) {
-        throw new Error(result && result.error
-          ? result.error
-          : 'SUBMIT_FAILED');
+        const errorCode =
+          result && result.error ? result.error : 'SUBMIT_FAILED';
+
+        const userMessages = {
+          VALID_PHONE_REQUIRED:
+            '휴대전화 번호를 10자리 또는 11자리로 입력해 주십시오.',
+          VALID_EMAIL_REQUIRED:
+            '이메일 주소를 정확히 입력해 주십시오.',
+          INVALID_SUMMARY:
+            '사건 개요를 15자 이상 작성해 주십시오.',
+          INVALID_NAME:
+            '성함 또는 호칭을 확인해 주십시오.',
+          CONSENT_REQUIRED:
+            '개인정보 수집·이용 동의가 필요합니다.',
+          TURNSTILE_FAILED:
+            '자동 접수 방지 확인에 실패했습니다. 다시 시도해 주십시오.',
+          UPSTREAM_REJECTED:
+            '접수 저장 과정에서 오류가 발생했습니다.',
+          UPSTREAM_INVALID_RESPONSE:
+            '접수 서버 응답을 확인하지 못했습니다.',
+          UPSTREAM_UNAVAILABLE:
+            '접수 서버에 연결할 수 없습니다.'
+        };
+
+        const error = new Error(errorCode);
+        error.userMessage =
+          userMessages[errorCode] ||
+          '접수 중 오류가 발생했습니다. 잠시 후 다시 시도해 주십시오.';
+        throw error;
       }
 
       trackEvent('consult_submit', {
@@ -2235,6 +2261,7 @@ document.querySelectorAll('.expertise-card').forEach(card => {
       console.error('Consultation submit failed:', error);
 
       status.textContent =
+        error.userMessage ||
         '접수 중 오류가 발생했습니다. 잠시 후 다시 시도하거나 직통전화로 연락해 주십시오.';
 
       trackEvent('consult_submit_error', {
@@ -2319,6 +2346,21 @@ document.querySelectorAll('.expertise-card').forEach(card => {
       form.reportValidity();
       status.textContent = '필수 항목을 확인해 주십시오.';
       return;
+    }
+
+    const selectedContact =
+      form.querySelector('input[name="contact_preference"]:checked');
+
+    if (selectedContact &&
+        selectedContact.value !== '이메일 회신') {
+      const phoneDigits = phoneInput.value.replace(/\D/g, '');
+
+      if (phoneDigits.length !== 10 && phoneDigits.length !== 11) {
+        phoneInput.focus();
+        status.textContent =
+          '휴대전화 번호를 10자리 또는 11자리로 입력해 주십시오.';
+        return;
+      }
     }
 
     ensureTurnstileRendered();
